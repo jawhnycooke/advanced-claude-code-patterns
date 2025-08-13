@@ -1,0 +1,99 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "Claude Code Advanced Patterns",
+    "description": "Production-ready agents, hooks, and workflows for Claude Code"
+  },
+  "defaults": {
+    "model": "sonnet",
+    "timeout": 300,
+    "max_retries": 2
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 $CLAUDE_PROJECT_DIR/.claude/hooks/use_uv.py",
+            "description": "Suggest UV instead of pip"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 $CLAUDE_PROJECT_DIR/.claude/hooks/black_formatter.py",
+            "description": "Auto-format Python files"
+          },
+          {
+            "type": "command",
+            "command": "python3 $CLAUDE_PROJECT_DIR/.claude/hooks/python_lint.py",
+            "description": "Lint Python files"
+          }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Read",
+      "Write",
+      "Edit",
+      "MultiEdit",
+      "Bash",
+      "Grep",
+      "Glob",
+      "LS",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:docs.anthropic.com)",
+      "WebFetch(domain:www.anthropic.com)",
+      "Bash(mkdir:*)",
+      "Bash(rm:*)",
+      "Bash(tree:*)",
+      "Bash(chmod:*)",
+      "Bash(docker:*)",
+      "Bash(docker-compose:*)",
+      "Bash(python:*)",
+      "Bash(/dev/null)",
+      "Bash(touch:*)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(cp:*)",
+      "Bash(mv:*)",
+      "Bash(for:*)",
+      "Bash(do echo -n \"$file: \")",
+      "Bash(if diff -q \"commands/epcc/$file\" \".claude/commands/epcc/$file\")",
+      "Bash(then echo \"✅ Identical\")",
+      "Bash(else echo \"❌ Different\")",
+      "Bash(fi)",
+      "Bash(done)",
+      "Bash(do)",
+      "Bash(target=\".claude/$file\")",
+      "Bash(if [ -f \"$file\" ])",
+      "Bash(then)",
+      "Bash(if [ -f \"$target\" ])",
+      "Bash(if:*)",
+      "Bash(echo \"Different: $file\")",
+      "Bash(else)",
+      "Bash(echo \"Missing: $target\")",
+      "Bash([ -f \"$target\" ])",
+      "Bash(echo \"✅ Synced: $file\")",
+      "Bash(echo:*)",
+      "Bash(elif [ -f \"$file\" ])"
+    ],
+    "deny": []
+  },
+  "environment": {
+    "CLAUDE_CODE_MODEL": "sonnet",
+    "CLAUDE_CODE_TIMEOUT": "600",
+    "PYTHON_ENV": "production"
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "name": "Auto Recovery Hook Configuration",
+  "description": "Automated error recovery and self-healing hooks",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "black ${file_path} 2>/dev/null || true",
+            "blocking": false,
+            "description": "Auto-format Python files after edit"
+          },
+          {
+            "type": "command",
+            "command": "isort ${file_path} 2>/dev/null || true",
+            "blocking": false,
+            "description": "Auto-sort imports after edit"
+          },
+          {
+            "type": "command",
+            "command": "test -f ${file_path} && git add ${file_path}",
+            "blocking": false,
+            "description": "Auto-stage edited files"
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "chmod +x ${file_path} 2>/dev/null || true",
+            "blocking": false,
+            "description": "Make scripts executable if needed",
+            "condition": "${file_path} matches *.sh or *.py"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "test $? -ne 0 && echo 'Command failed, attempting recovery...' && .claude/scripts/auto_recover.sh",
+            "blocking": false,
+            "description": "Trigger recovery script on command failure"
+          }
+        ]
+      }
+    ],
+    "OnError": [
+      {
+        "type": "command",
+        "command": "echo 'Error detected at $(date)' >> .claude/error.log",
+        "blocking": false,
+        "description": "Log errors for analysis"
+      },
+      {
+        "type": "command",
+        "command": "git status --short | grep -q '^M' && git stash push -m 'Auto-stash on error $(date +%s)'",
+        "blocking": false,
+        "description": "Auto-stash changes on error"
+      },
+      {
+        "type": "agent",
+        "agent": "code-archaeologist",
+        "args": "--analyze-error --suggest-fix",
+        "blocking": false,
+        "description": "Analyze error and suggest fixes"
+      }
+    ],
+    "Stop": [
+      {
+        "type": "command",
+        "command": "git diff --stat | tee -a .claude/session-changes.log",
+        "blocking": false,
+        "description": "Log session changes"
+      },
+      {
+        "type": "command",
+        "command": "test -f .claude/temp/* && rm -f .claude/temp/*",
+        "blocking": false,
+        "description": "Clean up temporary files"
+      }
+    ],
+    "SubagentStop": [
+      {
+        "type": "command",
+        "command": "echo 'Subagent ${agent_name} completed at $(date)' >> .claude/agent.log",
+        "blocking": false,
+        "description": "Log subagent completion"
+      }
+    ]
+  },
+  "recovery_scripts": {
+    "auto_recover.sh": "#!/bin/bash\n# Auto-recovery script\nset -e\n\n# Check for common issues and fix\nif [ -f 'requirements.txt' ]; then\n    pip install -r requirements.txt --quiet\nfi\n\nif [ -f 'package.json' ]; then\n    npm install --quiet\nfi\n\n# Reset file permissions if needed\nfind . -name '*.sh' -exec chmod +x {} \\;\n\n# Clear Python cache\nfind . -type d -name '__pycache__' -exec rm -rf {} + 2>/dev/null || true\n\necho 'Recovery attempted'"
+  },
+  "usage": "Add these hooks to enable automatic error recovery and self-healing",
+  "notes": [
+    "Recovery hooks should be non-blocking to prevent infinite loops",
+    "Test recovery scripts thoroughly before deployment",
+    "Monitor error.log for patterns that need addressing"
+  ]
+}

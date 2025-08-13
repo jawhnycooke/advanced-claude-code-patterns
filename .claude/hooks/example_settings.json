@@ -1,0 +1,140 @@
+{
+  "permissions": {
+    "file_read": {
+      "deny": [
+        "**/.env*",
+        "**/*secret*",
+        "**/*password*",
+        "**/*credential*",
+        "**/*.key",
+        "**/*.pem",
+        "**/*.crt",
+        "**/*.cer",
+        "**/node_modules/**",
+        "**/__pycache__/**",
+        "**/.venv/**",
+        "**/venv/**",
+        "**/.git/objects/**",
+        "**/.aws/**",
+        "**/.ssh/**"
+      ]
+    },
+    "file_write": {
+      "deny": [
+        "**/.env*",
+        "**/*secret*",
+        "**/*credential*",
+        "**/*.key",
+        "**/*.pem",
+        "**/node_modules/**",
+        "**/__pycache__/**"
+      ]
+    },
+    "bash": {
+      "allow": [
+        "git",
+        "python",
+        "python3",
+        "uv",
+        "uvx",
+        "black",
+        "ruff",
+        "mypy",
+        "pytest",
+        "flake8",
+        "isort",
+        "bandit",
+        "coverage"
+      ]
+    }
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python hooks/log_tool_use.py",
+            "description": "Log all tool usage for audit"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python hooks/use_uv.py",
+            "description": "Suggest UV instead of pip"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python hooks/black_formatter.py",
+            "description": "Auto-format Python files with Black"
+          },
+          {
+            "type": "command",
+            "command": "python hooks/python_lint.py",
+            "description": "Lint Python files with Ruff/Black/Mypy"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "matcher": "/epcc-.*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '🚀 Starting EPCC workflow phase' >&2",
+            "description": "Notify EPCC phase start"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '✅ Task completed' >&2",
+            "description": "Completion notification"
+          }
+        ]
+      }
+    ]
+  },
+  "model": {
+    "default": "sonnet",
+    "complex_tasks": "opus"
+  },
+  "tools": {
+    "file_editor": {
+      "prefer": "MultiEdit"
+    },
+    "search": {
+      "prefer": "Grep"
+    }
+  },
+  "preferences": {
+    "auto_format": true,
+    "lint_on_save": true,
+    "test_first": true,
+    "use_uv": true,
+    "epcc_workflow": true
+  },
+  "logging": {
+    "enabled": true,
+    "directory": ".claude",
+    "max_size_mb": 10,
+    "retention_days": 30
+  }
+}

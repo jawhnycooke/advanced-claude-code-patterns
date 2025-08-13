@@ -1,0 +1,282 @@
+{
+  "name": "security-gates",
+  "description": "Comprehensive security checks and permission enforcement",
+  "version": "1.0.0",
+  "triggers": [
+    "pre-commit",
+    "pre-push",
+    "file-write",
+    "network-request"
+  ],
+  "configuration": {
+    "severity_threshold": "medium",
+    "block_on_failure": true,
+    "audit_all_operations": true,
+    "require_approval_for_sensitive": true
+  },
+  "pre_commit_checks": [
+    {
+      "name": "detect-secrets",
+      "description": "Scan for hardcoded secrets",
+      "command": "detect-secrets scan --all-files",
+      "fail_on_detection": true,
+      "patterns": [
+        "api[_-]?key\\s*=\\s*[\"'][^\"']{20,}[\"']",
+        "password\\s*=\\s*[\"'][^\"']+[\"']",
+        "token\\s*=\\s*[\"'][^\"']{20,}[\"']",
+        "secret\\s*=\\s*[\"'][^\"']+[\"']",
+        "private[_-]?key\\s*=\\s*[\"'][^\"']+[\"']"
+      ],
+      "exclude_paths": [
+        "test/",
+        "*.test.js",
+        "*.spec.py"
+      ]
+    },
+    {
+      "name": "vulnerability-scan",
+      "description": "Check for known vulnerabilities",
+      "commands": {
+        "python": "pip-audit --fix",
+        "javascript": "npm audit fix",
+        "ruby": "bundle audit check --update"
+      },
+      "severity": "moderate",
+      "auto_fix": true
+    },
+    {
+      "name": "code-analysis",
+      "description": "Static security analysis",
+      "tools": {
+        "python": {
+          "command": "bandit -r . -ll",
+          "config": ".bandit"
+        },
+        "javascript": {
+          "command": "eslint . --ext .js,.ts",
+          "config": ".eslintrc.json"
+        },
+        "general": {
+          "command": "semgrep --config=auto",
+          "config": ".semgrep.yml"
+        }
+      }
+    },
+    {
+      "name": "permission-check",
+      "description": "Verify file permissions",
+      "checks": [
+        {
+          "pattern": "*.sh",
+          "max_permissions": "755",
+          "message": "Script files should not be world-writable"
+        },
+        {
+          "pattern": "*.key",
+          "max_permissions": "600",
+          "message": "Private keys must be readable only by owner"
+        },
+        {
+          "pattern": ".env*",
+          "max_permissions": "600",
+          "message": "Environment files must be protected"
+        }
+      ]
+    }
+  ],
+  "file_write_protection": {
+    "sensitive_paths": [
+      ".git/config",
+      ".ssh/",
+      "*.pem",
+      "*.key",
+      "*.p12",
+      ".env*",
+      "secrets/",
+      "credentials/"
+    ],
+    "require_explicit_approval": true,
+    "audit_modifications": true,
+    "backup_before_modify": true
+  },
+  "network_security": {
+    "allowed_domains": [
+      "github.com",
+      "api.github.com",
+      "pypi.org",
+      "registry.npmjs.org",
+      "docs.anthropic.com"
+    ],
+    "blocked_domains": [
+      "*.onion",
+      "*.local",
+      "localhost",
+      "127.0.0.1"
+    ],
+    "require_https": true,
+    "verify_certificates": true,
+    "log_all_requests": true
+  },
+  "command_execution_security": {
+    "dangerous_commands": [
+      "rm -rf /",
+      "chmod 777",
+      "curl | sh",
+      "wget | bash",
+      "eval",
+      "exec"
+    ],
+    "require_confirmation": [
+      "git push --force",
+      "git reset --hard",
+      "npm publish",
+      "pip upload",
+      "docker push"
+    ],
+    "sudo_operations": {
+      "allowed": false,
+      "message": "Sudo operations are not permitted through Claude Code"
+    }
+  },
+  "git_security": {
+    "prevent_force_push": true,
+    "require_signed_commits": false,
+    "branch_protection": {
+      "protected_branches": ["main", "master", "production"],
+      "require_review": true,
+      "dismiss_stale_reviews": true,
+      "require_up_to_date": true
+    },
+    "pre_push_checks": [
+      {
+        "name": "no-secrets-in-history",
+        "command": "git secrets --scan-history"
+      },
+      {
+        "name": "commit-message-validation",
+        "pattern": "^(feat|fix|docs|style|refactor|test|chore)\\(.+\\): .+",
+        "message": "Commit messages must follow conventional format"
+      }
+    ]
+  },
+  "dependency_security": {
+    "auto_update_patches": true,
+    "block_vulnerable_versions": true,
+    "require_lock_files": true,
+    "scan_transitive_dependencies": true,
+    "license_check": {
+      "allowed_licenses": [
+        "MIT",
+        "Apache-2.0",
+        "BSD-3-Clause",
+        "ISC"
+      ],
+      "blocked_licenses": [
+        "GPL-3.0",
+        "AGPL-3.0"
+      ]
+    }
+  },
+  "compliance_checks": {
+    "gdpr": {
+      "detect_pii": true,
+      "require_encryption": true,
+      "data_retention_check": true
+    },
+    "hipaa": {
+      "detect_phi": true,
+      "require_audit_log": true,
+      "encryption_at_rest": true
+    },
+    "pci_dss": {
+      "detect_card_data": true,
+      "require_tokenization": true,
+      "secure_transmission": true
+    }
+  },
+  "incident_response": {
+    "on_secret_detected": {
+      "action": "block",
+      "notify": ["security-team@example.com"],
+      "rotate_credential": true,
+      "create_incident": true
+    },
+    "on_vulnerability_found": {
+      "critical": {
+        "action": "block",
+        "notify": ["security-team@example.com"],
+        "create_issue": true
+      },
+      "high": {
+        "action": "warn",
+        "auto_fix_attempt": true,
+        "create_issue": true
+      },
+      "medium": {
+        "action": "warn",
+        "log": true
+      }
+    },
+    "on_suspicious_activity": {
+      "action": "log",
+      "alert_threshold": 5,
+      "lockout_after": 10
+    }
+  },
+  "audit_configuration": {
+    "log_level": "INFO",
+    "log_format": "json",
+    "log_destination": "~/.claude/security-audit.log",
+    "retention_days": 90,
+    "log_operations": [
+      "file_write",
+      "file_delete",
+      "network_request",
+      "command_execution",
+      "permission_change",
+      "git_operation"
+    ],
+    "alert_on_patterns": [
+      "permission denied",
+      "authentication failed",
+      "secret detected",
+      "vulnerability found"
+    ]
+  },
+  "notifications": {
+    "channels": {
+      "console": {
+        "enabled": true,
+        "min_severity": "warning"
+      },
+      "file": {
+        "enabled": true,
+        "path": "~/.claude/security-notifications.log",
+        "min_severity": "info"
+      },
+      "webhook": {
+        "enabled": false,
+        "url": "https://hooks.slack.com/services/YOUR/WEBHOOK/URL",
+        "min_severity": "critical"
+      }
+    }
+  },
+  "emergency_procedures": {
+    "lockdown_mode": {
+      "trigger": "critical_security_event",
+      "actions": [
+        "disable_all_write_operations",
+        "disable_network_access",
+        "disable_command_execution",
+        "notify_security_team",
+        "create_incident_report"
+      ]
+    },
+    "recovery_mode": {
+      "require_admin_approval": true,
+      "verify_system_integrity": true,
+      "reset_permissions": true,
+      "audit_all_changes": true
+    }
+  }
+}
