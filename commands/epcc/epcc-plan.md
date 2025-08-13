@@ -2,7 +2,7 @@
 name: epcc-plan
 description: Plan phase of EPCC workflow - strategic design before implementation
 version: 1.0.0
-argument-hint: [feature-or-task-to-plan]
+argument-hint: "[feature-or-task-to-plan]"
 ---
 
 # EPCC Plan Command

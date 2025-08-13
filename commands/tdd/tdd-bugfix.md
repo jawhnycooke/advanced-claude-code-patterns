@@ -2,7 +2,7 @@
 name: tdd-bugfix
 description: Fix bugs using Test-Driven Development approach with regression prevention
 version: 1.0.0
-argument-hint: [bug-description-or-issue-number]
+argument-hint: "[bug-description-or-issue-number]"
 ---
 
 # TDD Bug Fix Command

@@ -2,7 +2,7 @@
 name: tdd-feature
 description: Develop features using strict Test-Driven Development with parallel test specialists
 version: 1.0.0
-argument-hint: [feature-description]
+argument-hint: "[feature-description]"
 ---
 
 # TDD Feature Development Command

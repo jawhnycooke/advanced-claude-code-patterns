@@ -2,7 +2,7 @@
 name: generate-tests
 description: Generate comprehensive test suites for code
 version: 1.0.0
-argument-hint: [file-or-module-to-test] [--unit|--integration|--e2e|--all]
+argument-hint: "[file-or-module-to-test] [--unit|--integration|--e2e|--all]"
 ---
 
 # Generate Tests Command

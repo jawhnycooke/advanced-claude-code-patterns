@@ -2,7 +2,7 @@
 name: permission-audit
 description: Comprehensive audit of permissions and security configuration
 version: 1.0.0
-argument-hint: [--quick|--comprehensive] [focus-area]
+argument-hint: "[--quick|--comprehensive] [focus-area]"
 ---
 
 # Permission Audit Command

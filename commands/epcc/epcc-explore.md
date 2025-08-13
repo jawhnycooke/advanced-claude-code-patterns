@@ -2,7 +2,7 @@
 name: epcc-explore
 description: Explore phase of EPCC workflow - understand thoroughly before acting
 version: 1.0.0
-argument-hint: [area-to-explore] [--deep|--quick]
+argument-hint: "[area-to-explore] [--deep|--quick]"
 ---
 
 # EPCC Explore Command
