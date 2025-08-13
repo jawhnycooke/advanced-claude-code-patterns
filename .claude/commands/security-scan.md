@@ -2,7 +2,7 @@
 name: security-scan
 description: Comprehensive security audit with deep thinking and parallel analysis
 version: 1.0.0
-argument-hint: [target] [--deep|--quick] [--focus:<vulnerability-type>]
+argument-hint: "[target] [--deep|--quick] [--focus:<vulnerability-type>]"
 ---
 
 # Security Scan Command

@@ -2,7 +2,7 @@
 name: code-review
 description: Comprehensive code review with actionable feedback using extended thinking
 version: 1.0.0
-argument-hint: [file-or-pr] [--focus:<aspect>]
+argument-hint: "[file-or-pr] [--focus:<aspect>]"
 ---
 
 # Code Review Command

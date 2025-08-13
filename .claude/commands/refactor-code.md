@@ -2,7 +2,7 @@
 name: refactor-code
 description: Intelligent refactoring with strategic thinking and parallel analysis
 version: 1.0.0
-argument-hint: [file-or-pattern] [--focus:<aspect>]
+argument-hint: "[file-or-pattern] [--focus:<aspect>]"
 ---
 
 # Refactor Code Command

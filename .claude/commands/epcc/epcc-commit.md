@@ -2,7 +2,7 @@
 name: epcc-commit
 description: Commit phase of EPCC workflow - finalize with confidence
 version: 1.0.0
-argument-hint: [commit-message] [--amend|--squash]
+argument-hint: "[commit-message] [--amend|--squash]"
 ---
 
 # EPCC Commit Command

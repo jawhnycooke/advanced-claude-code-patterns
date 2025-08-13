@@ -2,7 +2,7 @@
 name: epcc-code
 description: Code phase of EPCC workflow - implement with confidence
 version: 1.0.0
-argument-hint: [task-to-implement] [--tdd|--quick]
+argument-hint: "[task-to-implement] [--tdd|--quick]"
 ---
 
 # EPCC Code Command

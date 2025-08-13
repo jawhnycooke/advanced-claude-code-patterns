@@ -2,7 +2,7 @@
 name: create-documentation
 description: Generate comprehensive project documentation
 version: 1.0.0
-argument-hint: [target] [--api|--user|--dev|--all]
+argument-hint: "[target] [--api|--user|--dev|--all]"
 ---
 
 # Create Documentation Command

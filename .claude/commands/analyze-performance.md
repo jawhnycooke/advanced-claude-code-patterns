@@ -2,7 +2,7 @@
 name: analyze-performance
 description: Deep performance analysis with extended thinking and parallel optimization
 version: 1.0.0
-argument-hint: [target] [--profile|--benchmark|--analyze]
+argument-hint: "[target] [--profile|--benchmark|--analyze]"
 ---
 
 # Analyze Performance Command

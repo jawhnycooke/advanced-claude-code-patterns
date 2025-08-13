@@ -2,7 +2,7 @@
 name: epcc-explore
 description: Explore phase of EPCC workflow - understand thoroughly before acting
 version: 1.0.0
-argument-hint: [area-to-explore] [--deep|--quick]
+argument-hint: "[area-to-explore] [--deep|--quick]"
 ---
 
 # EPCC Explore Command
@@ -15,11 +15,11 @@ You are in the **EXPLORE** phase of the Explore-Plan-Code-Commit workflow. Your 
 - Identifying constraints and dependencies
 - Documenting everything in EPCC_EXPLORE.md
 
-All implementation will happen in the CODE phase. Use the following subagents in PARALLEL for this explore phase:
+All implementation will happen in the CODE phase. Use the following subagents in parallel for this explore phase:
 
 ## Parallel Exploration Subagents
 
-IMPORTANT: Use the following subagents in PARALLEL for this explore phase:
+IMPORTANT: Use the following subagents in parallel for this explore phase:
 
 1. **code-archaeologist**: Analyze legacy code structure and uncover hidden patterns (NO CODING - only analysis)
 2. **architect**: Identify design patterns and architectural conventions (NO IMPLEMENTATION - only observation)
