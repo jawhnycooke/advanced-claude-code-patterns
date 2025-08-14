@@ -1,6 +1,6 @@
 # EPCC Workflow Architecture Diagram
 
-This diagram visualizes the complete Explore-Plan-Code-Commit (EPCC) workflow, showing the accurate relationships between commands, agents, hooks, and outputs at each phase.
+This diagram visualizes the complete Explore-Plan-Code-Commit (EPCC) workflow, showing the relationships between commands, agents, hooks, and outputs at each phase.
 
 ## Complete EPCC Workflow with Agent Mappings
 
