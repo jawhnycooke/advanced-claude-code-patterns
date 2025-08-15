@@ -120,39 +120,108 @@ claude --model opus "Complex security analysis needed"
 **Symptoms:**
 - Agent ignoring guidelines
 - Inconsistent behavior
+- Breaking character
 
 **Solutions:**
 
-1. **Make instructions explicit:**
-```markdown
-## ALWAYS DO
-- Check for SQL injection
-- Validate input sanitization
+1. **Validate agent structure:**
+```python
+def validate_agent(file_path):
+    """Check agent meets requirements."""
+    with open(file_path) as f:
+        content = f.read()
+    
+    errors = []
+    
+    # Check for unnecessary verbosity
+    if has_redundant_content(content):
+        errors.append("Agent contains redundant or unfocused content")
+    
+    # Check required sections
+    if '## Quick Reference' not in content:
+        errors.append("Missing Quick Reference section")
+    
+    if '## Activation Instructions' not in content:
+        errors.append("Missing Activation Instructions")
+    
+    # Check activation conciseness
+    activation = content.split('## Activation Instructions')[1].split('##')[0]
+    if is_overly_verbose(activation):
+        errors.append("Activation Instructions are overly verbose")
+    
+    # Check for background stories
+    if 'Background:' in content and len(content.split('Background:')[1].split('\n')[0]) > 100:
+        errors.append("Remove background stories from persona")
+    
+    return errors
 
-## NEVER DO
-- Ignore security warnings
-- Skip validation steps
+def has_redundant_content(content):
+    """Check if agent has unnecessary verbosity."""
+    # Look for repeated information, overly long explanations
+    # This is context-dependent based on agent purpose
+    return False  # Implementation varies by agent
 ```
 
-2. **Add examples:**
+2. **Fix common structure issues:**
 ```markdown
-## Example Response
-When finding SQL injection:
-"⚠️ SQL Injection vulnerability found at line 42
-Recommendation: Use parameterized queries"
+# ✅ GOOD Structure (focused and concise)
+---
+name: my-agent
+description: Clear trigger phrase...
+model: sonnet
+tools: [Read, Grep, Glob]  # Minimal
+---
+
+## Quick Reference
+- Capability 1
+- Capability 2
+- Workflow
+- Constraint
+- Value prop
+
+## Activation Instructions
+
+- CRITICAL: Most important rule
+- WORKFLOW: Step → Step → Step
+- Essential rule
+- Another rule
+- STAY IN CHARACTER as Name, role
+
+## Core Identity
+
+**Role**: Senior Title
+**Identity**: You are **Name**, who [one line].
+
+**Principles**:
+- **Principle**: Action-oriented
+- [4-5 more max]
+
+# ❌ BAD Structure
+---
+name: my-agent
+---
+
+## Activation Instructions
+
+- STEP 1: Read this entire file...
+- STEP 2: Understand the context...
+- STEP 3: Adopt the persona...
+[... 20+ lines of instructions ...]
+
+## Persona
+
+**Background**: [Long career story...]
+**Experience**: [Detailed history...]
 ```
 
 3. **Test agent behavior:**
-```python
-# Test specific scenarios
-test_cases = [
-    "Review this SQL: SELECT * FROM users WHERE id = '$id'",
-    "Check this input validation: user_input.strip()"
-]
+```bash
+# Validate structure
+claude validate agents
 
-for test in test_cases:
-    response = claude(f"Using security-reviewer: {test}")
-    assert expected_behavior in response
+# Test character consistency
+response=$(claude --agent my-agent "test task")
+echo "$response" | grep -q "PersonaName" || echo "Agent breaking character!"
 ```
 
 ## Hook Problems

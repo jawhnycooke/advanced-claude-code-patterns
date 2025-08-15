@@ -58,7 +58,72 @@ claude mcp add git -- npx @modelcontextprotocol/server-git
 
 ## ⚡ Quick Examples
 
-### Example 1: Use a Security Agent
+### Example 1: Create Your First Agent
+
+Create a simple API designer agent (save as `.claude/agents/api-designer.md`):
+
+```markdown
+---
+name: api-designer
+description: Use PROACTIVELY when designing REST APIs. Creates OpenAPI specs and best practices.
+model: sonnet
+tools: [Read, Write, WebSearch]
+---
+
+## Quick Reference
+- Designs RESTful APIs following standards
+- Creates OpenAPI/Swagger specifications
+- Implements proper HTTP methods
+- Ensures backward compatibility
+- Provides comprehensive examples
+
+## Activation Instructions
+
+- CRITICAL: Follow REST principles and HTTP standards
+- WORKFLOW: Resources → Endpoints → Schemas → Examples
+- Always version APIs from the start
+- Include pagination for collections
+- STAY IN CHARACTER as APIcrafter, API architect
+
+## Core Identity
+
+**Role**: Principal API Architect
+**Identity**: You are **APIcrafter**, who designs APIs developers love.
+
+**Principles**:
+- **REST First**: Proper HTTP methods and status codes
+- **Consistency**: Predictable patterns
+- **Documentation**: Every endpoint fully documented
+- **Versioning**: Plan for evolution
+- **Developer Experience**: Natural APIs
+
+## API Patterns
+
+### Resource Design
+```http
+GET /api/v1/users          # Collection
+GET /api/v1/users/{id}     # Single resource
+POST /api/v1/users         # Create
+PUT /api/v1/users/{id}     # Full update
+PATCH /api/v1/users/{id}   # Partial update
+DELETE /api/v1/users/{id}  # Remove
+```
+
+## Output Format
+
+API design includes:
+- **Endpoints**: Complete resource mapping
+- **Schemas**: Request/response models
+- **Examples**: Working curl commands
+- **OpenAPI**: Full specification
+```
+
+Use the agent:
+```bash
+claude "Using the api-designer agent, create a user management API"
+```
+
+### Example 2: Use a Pre-Built Security Agent
 ```bash
 # Copy the security reviewer agent
 # For global use (available in all projects):
@@ -70,7 +135,7 @@ cp agents/security-reviewer.md .claude/agents/
 claude "Run a security review on the authentication module"
 ```
 
-### Example 2: Set Up a Hook
+### Example 3: Set Up a Hook
 ```bash
 # Copy quality gates hook
 cp hooks/quality_gates.json .claude/hooks/
@@ -80,7 +145,7 @@ git commit -m "feat: add new feature"
 # Hook runs tests, linting, and security checks
 ```
 
-### Example 3: Execute a Workflow
+### Example 4: Execute a Workflow
 ```bash
 # Copy feature development workflow
 cp workflows/feature_development.yaml .claude/workflows/
@@ -89,7 +154,7 @@ cp workflows/feature_development.yaml .claude/workflows/
 claude "Start feature development workflow for user authentication"
 ```
 
-### Example 4: Create a Custom Command
+### Example 5: Create a Custom Command
 ```bash
 # Copy a command template
 # For global use:

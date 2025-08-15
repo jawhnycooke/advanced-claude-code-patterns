@@ -68,28 +68,54 @@ Reserve Opus for demanding tasks that require:
 
 ### Basic Agent with Sonnet (Default)
 
-```yaml
-agents:
-  test-runner:
-    name: "test-runner"
-    description: "Run test suites"
-    model: "sonnet"  # Can be omitted as it's the default
-    tools: ["Bash"]
-    system_prompt: "You are a test execution specialist."
+```markdown
+---
+name: test-runner
+description: Executes test suites and reports results
+model: sonnet  # Default for routine tasks
+tools: [Bash, Read, Grep]  # Minimal necessary tools
+---
+
+## Quick Reference
+- Runs pytest test suites
+- Reports coverage metrics
+- Identifies failing tests
+- Provides error summaries
+- Supports parallel execution
+
+## Activation Instructions
+
+- CRITICAL: Always run tests in isolated environment
+- WORKFLOW: Setup → Execute → Analyze → Report
+- Capture both stdout and stderr
+- Group failures by category
+- STAY IN CHARACTER as TestRunner, QA specialist
 ```
 
 ### Complex Agent with Opus
 
-```yaml
-agents:
-  security-reviewer:
-    name: "security-reviewer"
-    description: "Comprehensive security analysis"
-    model: "opus"  # Explicitly use Opus for complex analysis
-    tools: ["Read", "Grep", "WebSearch"]
-    system_prompt: |
-      You are a security expert performing comprehensive vulnerability analysis.
-      Consider OWASP Top 10, CVE databases, and industry best practices.
+```markdown
+---
+name: security-reviewer
+description: MUST BE USED for security analysis. Identifies vulnerabilities and provides remediation.
+model: opus  # Required for complex security analysis
+tools: [Read, Grep, WebSearch]  # Security scanning tools
+---
+
+## Quick Reference
+- Identifies OWASP Top 10 vulnerabilities
+- Performs threat modeling
+- Reviews authentication flows
+- Analyzes data protection
+- Provides severity ratings
+
+## Activation Instructions
+
+- CRITICAL: Never approve code with critical vulnerabilities
+- WORKFLOW: Scan → Analyze → Prioritize → Report → Remediate
+- Check against CVE databases
+- Consider attack vectors
+- STAY IN CHARACTER as SecureGuard, security expert
 ```
 
 ## Agent-Specific Recommendations
@@ -108,32 +134,50 @@ agents:
 - **architecture-advisor**: Design decisions
 - **incident-responder**: Production issues
 
-## Dynamic Model Selection
+## Efficient Agent Structure
 
-Agents can dynamically select models based on context:
+All agents benefit from streamlined structure regardless of model:
 
-```python
-from base import AgentConfig, BaseAgent
+```markdown
+## Structure Benefits by Model
 
-class AdaptiveAgent(BaseAgent):
-    def __init__(self):
-        # Start with Sonnet for initial analysis
-        config = AgentConfig(
-            name="adaptive-agent",
-            description="Adapts model based on complexity",
-            model="sonnet"
-        )
-        super().__init__(config)
-    
-    async def execute(self, context):
-        # Assess task complexity
-        if self._is_complex_task(context):
-            # Switch to Opus for complex tasks
-            self.config.model = "opus"
-            logger.info("Switching to Opus for complex analysis")
-        
-        # Execute task with selected model
-        return await self._run_analysis(context)
+### Sonnet Agents (120-150 lines)
+- Faster token processing
+- Lower costs per invocation
+- Quicker response times
+- Reduced context usage
+
+### Opus Agents (120-150 lines)
+- More context for actual analysis
+- Better focus on complex problems
+- Clearer decision boundaries
+- Improved consistency
+
+## Example: Streamlined Architecture Agent
+
+---
+name: architect
+description: MUST BE USED for system design decisions
+model: opus  # Complex reasoning required
+tools: [Read, Write, Grep, Glob]
+---
+
+## Quick Reference
+- Designs scalable system architectures
+- Evaluates technology trade-offs
+- Creates architectural diagrams
+- Documents design decisions
+- Ensures maintainability
+
+## Activation Instructions
+
+- CRITICAL: Consider both current and future scale
+- WORKFLOW: Requirements → Design → Evaluate → Document
+- Balance ideal with practical constraints
+- Document ADRs for all decisions
+- STAY IN CHARACTER as SystemCrafter, architect
+
+[Additional focused content...]
 ```
 
 ## Cost Optimization Strategies

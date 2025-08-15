@@ -169,72 +169,180 @@ argument-hint: [optional-args]
 
 ## Agent Best Practices
 
-### 1. Model Selection Strategy
+### 1. Agent Structure Requirements
 
+**✅ Standard Agent Structure (right-sized for purpose):**
 ```markdown
-# Optimal model selection
 ---
-name: code-analyzer
-model: sonnet  # Default for standard analysis
+name: agent-name
+description: Use PROACTIVELY when... [trigger phrase]
+model: sonnet  # or opus for complex tasks
+tools: [Read, Grep, Glob]  # Minimal necessary set
 ---
 
-# When to upgrade to opus
-If analyzing:
-- Security vulnerabilities → Switch to opus
-- Complex algorithms → Switch to opus
-- Architecture decisions → Switch to opus
-Otherwise, continue with sonnet for cost efficiency.
+## Quick Reference
+- Core capability 1
+- Core capability 2  
+- Primary workflow
+- Key constraint
+- Value proposition
+
+## Activation Instructions
+
+- CRITICAL: Most important rule in CAPS
+- WORKFLOW: Step → Step → Step → Step
+- Essential behavioral rule
+- Another essential rule
+- STAY IN CHARACTER as PersonaName, role
+
+## Core Identity
+
+**Role**: Senior/Principal Title
+**Identity**: You are **PersonaName**, who [one-line impact].
+
+**Principles**:
+- **Principle**: Action-oriented description
+- [4-5 more principles maximum]
+
+## Domain Knowledge
+[Focused content with 1-2 examples per concept]
+
+## Output Format
+Deliverables:
+- **Field**: Description
+- **Field**: Description
 ```
 
-### 2. Clear Agent Boundaries
+**❌ Common Mistakes:**
+- Unnecessary verbosity without added value
+- Missing Quick Reference section
+- Overly verbose activation instructions
+- Including background stories in persona
+- Requesting unnecessary tools
+- Using prose in output format
 
-**Good Agent Design:**
-```markdown
----
-name: api-designer
-description: Designs RESTful APIs following OpenAPI specification
+### 2. Model Selection Strategy
+
+**Choose Sonnet for:**
+- Code generation from templates
+- Documentation writing
+- Test generation
+- API endpoint creation
+- Simple refactoring
+- Routine automation
+
+**Choose Opus for:**
+- Complex architectural decisions
+- Security analysis
+- Performance optimization
+- Legacy code archaeology
+- Multi-step problem solving
+- Cross-domain analysis
+
+```yaml
+# Simple tasks - use sonnet
 model: sonnet
-tools: [Read, Write]
----
 
-## Responsibilities
-- Design REST endpoints
-- Create OpenAPI schemas
-- Define request/response models
-
-## NOT Responsible For
-- Implementation details
-- Database design
-- Authentication logic
+# Complex analysis - use opus
+model: opus
 ```
 
-### 3. Agent Testing
+### 3. Essential Agent Elements
+
+**Required Sections:**
+1. **Quick Reference** (3-5 bullets) - First content section
+2. **Activation Instructions** (5-6 lines max)
+3. **Core Identity** (No background stories)
+4. **Domain Knowledge** (Merged with responsibilities)
+5. **Output Format** (Directive bullets)
+
+**Agent Validation Checklist:**
+```python
+def validate_agent(content):
+    checks = {
+        'focused': is_content_focused(content),  # No unnecessary verbosity
+        'has_quick_ref': '## Quick Reference' in content,
+        'activation_brief': is_activation_concise(content),
+        'has_identity': '## Core Identity' in content,
+        'minimal_tools': count_tools(content) <= 7,
+        'has_output': '## Output Format' in content
+    }
+    return all(checks.values())
+
+def is_content_focused(content):
+    """Check if content is focused and purposeful."""
+    # Check for redundancy, unnecessary sections, verbose explanations
+    return True  # Implementation depends on specific criteria
+```
+
+### 4. Minimal Tool Selection
+
+**Base Tools (start with these):**
+```yaml
+tools: [Read, Grep, Glob]
+```
+
+**Add Only If Necessary:**
+- `Write, Edit` - For file modifications
+- `Bash` - For command execution
+- `WebSearch` - For current information
+- `TodoWrite` - For task management
+- `Task` - For multi-agent orchestration
+
+**Never Request All Tools:**
+```yaml
+# ❌ Bad
+tools: [Read, Write, Edit, MultiEdit, Grep, Glob, LS, Bash, BashOutput, WebSearch, WebFetch, Task, TodoWrite]
+
+# ✅ Good
+tools: [Read, Write, Grep]  # Only what's needed
+```
+
+### 5. Effective Personas
+
+**✅ Good Persona:**
+```markdown
+## Core Identity
+
+**Role**: Principal Security Engineer
+**Identity**: You are **SecureGuard**, who prevents breaches before they happen.
+
+**Principles**:
+- **Zero Trust**: Verify everything
+- **Defense in Depth**: Layer protections
+- **Shift Left**: Security from the start
+- **Continuous Monitoring**: Never stop watching
+- **Education First**: Teach secure practices
+```
+
+**❌ Bad Persona:**
+```markdown
+## Core Identity
+
+**Role**: Security Expert
+**Identity**: You are an agent that does security.
+
+**Background**: [Long story about career history...]
+**Certifications**: [List of credentials...]
+**Experience**: [Detailed work history...]
+```
+
+### 6. Testing Agents
 
 ```python
-# Example test for agent responses
-def test_security_agent_finds_sql_injection():
-    """Security agent should detect SQL injection."""
-    vulnerable_code = """
-    query = f"SELECT * FROM users WHERE id = {user_input}"
-    """
-    
-    response = run_agent("security-reviewer", vulnerable_code)
-    assert "SQL injection" in response
-    assert "parameterized query" in response
-```
+# Test agent structure
+def test_agent_structure():
+    agent = load_agent("security-reviewer.md")
+    assert agent.is_focused()  # No unnecessary content
+    assert agent.has_section("Quick Reference")
+    assert agent.activation_is_concise()
+    assert agent.tools_count <= 7
 
-### 4. Agent Versioning
-
-```markdown
----
-name: test-generator
-version: 2.1.0
-compatible_with: ">=1.0.0"
-changelog:
-  - 2.1.0: Added property-based testing
-  - 2.0.0: Support for async tests
-  - 1.0.0: Initial version
----
+# Test agent behavior
+def test_agent_behavior():
+    response = run_agent("security-reviewer", test_code)
+    assert "SecureGuard" in response  # Stays in character
+    assert follows_output_format(response)
 ```
 
 ## Hook Optimization
