@@ -232,4 +232,5 @@ claude --agent agent-name --dry-run
 
 - [Configuration Reference](configuration.md)
 - [Tools Reference](tools.md)
-- [Agent Library](library.md)
+- [Configuration Schema](../configuration/schema.md)
+- [CLAUDE.md Specification](../configuration/claude-md.md)

@@ -47,7 +47,7 @@ graph TD
 | [01. Your First Agent](tutorials/01-first-agent.md) | 15 min | Beginner | A working "Hello World" agent |
 | [02. Your First Hook](tutorials/02-first-hook.md) | 20 min | Beginner | Pre-commit quality check |
 | [03. Your First Workflow](tutorials/03-first-workflow.md) | 30 min | Beginner | Automated testing pipeline |
-| [04. Complete Project](tutorials/04-complete-project.md) | 45 min | Intermediate | Multi-agent development system |
+| [04. EPCC Workflow](tutorials/04-epcc-workflow.md) | 45 min | Intermediate | Systematic development with EPCC |
 
 ### 📚 Advanced Series
 | Tutorial | Time | Difficulty | What You'll Learn |
@@ -80,6 +80,9 @@ graph TD
 - [Cache Expensive Operations](how-to/implement-caching.md)
 
 ### 🔄 Workflows & Automation
+- [Implement EPCC for New Features](how-to/implement-epcc-for-features.md)
+- [Implement EPCC for Bug Fixes](how-to/implement-epcc-for-bugs.md)
+- [Implement EPCC for Refactoring](how-to/implement-epcc-for-refactoring.md)
 - [Set Up TDD Workflow](how-to/tdd-workflow.md)
 - [Automate PR Reviews](how-to/pr-automation.md)
 - [Create CI/CD Integration](how-to/cicd-integration.md)
@@ -110,15 +113,13 @@ graph TD
 - [Agent Structure Specification](reference/agents/structure.md)
 - [YAML Configuration Reference](reference/agents/configuration.md)
 - [Available Tools Catalog](reference/agents/tools.md)
-- [Built-in Agent Library](reference/agents/library.md)
 
 ### 🪝 Hooks
 - [Event Lifecycle Reference](reference/hooks/events.md)
 - [Hook Configuration Schema](reference/hooks/configuration.md)
-- [Hook API Documentation](reference/hooks/api.md)
-- [Built-in Hooks Library](reference/hooks/library.md)
 
 ### 📝 Commands
+- [EPCC Commands Reference](reference/epcc-commands.md)
 - [Command Index](reference/commands/index.md)
 - [Command Syntax Reference](reference/commands/syntax.md)
 - [Custom Command API](reference/commands/api.md)
@@ -132,6 +133,7 @@ graph TD
 - [Environment Variables](reference/configuration/environment.md)
 - [Settings.json Reference](reference/configuration/settings.md)
 - [CLAUDE.md Specification](reference/configuration/claude-md.md)
+- [Workflow Configuration](reference/workflow-configuration.md)
 
 ### 🔌 MCP Servers
 - [MCP Protocol Reference](reference/mcp/protocol.md)
@@ -139,11 +141,14 @@ graph TD
 - [MCP Configuration](reference/mcp/configuration.md)
 - [Building MCP Servers](reference/mcp/building.md)
 
+### 🔐 Security Reference
+- [Permission Schema](reference/security/permission-schema.md)
+- [Security Commands](reference/security/commands.md)
+- [Monitoring Configuration](reference/monitoring-configuration.md)
+
 ### ❗ Errors & Troubleshooting
-- [Error Code Reference](reference/errors.md)
-- [Common Issues Database](reference/common-issues.md)
-- [Debug Output Guide](reference/debug-output.md)
-- [Recovery Procedures](reference/recovery.md)
+- [Troubleshooting Guide](troubleshooting.md)
+- [Common Issues & Solutions](../DOCUMENTATION_TODO.md#troubleshooting-improvements)
 
 </td>
 </tr>
@@ -155,6 +160,7 @@ graph TD
 **Understand the why** - Conceptual knowledge and design discussions
 
 ### 🏗️ Architecture & Design
+- [EPCC Philosophy and Design Principles](explanation/epcc-philosophy.md)
 - [Claude Code Architecture Overview](explanation/architecture.md)
 - [Why Agents Matter](explanation/why-agents.md)
 - [Hook Lifecycle Deep Dive](explanation/hook-lifecycle.md)

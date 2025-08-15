@@ -114,3 +114,10 @@ color: blue
 tools: [Read, Write, WebSearch]
 ---
 ```
+
+## See Also
+
+- [Agent Structure](structure.md)
+- [Available Tools](tools.md)
+- [Configuration Schema](../configuration/schema.md)
+- [Settings.json Reference](../configuration/settings.md)
