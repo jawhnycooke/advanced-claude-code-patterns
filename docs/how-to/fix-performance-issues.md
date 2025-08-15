@@ -17,7 +17,7 @@ Optimize Claude Code performance and resolve resource bottlenecks.
 time claude --agent my-agent "test task"
 
 # Check token usage
-claude cost
+/cost
 
 # Profile agent execution
 claude --debug --agent my-agent "task" 2>&1 | grep -i "time\|token"
@@ -100,14 +100,16 @@ du -sh ~/.claude/cache/
 2. **Clear cache regularly**
    ```bash
    # Manual clear
-   claude cache clear
+   # Clear conversation context
+   /clear
    
    # Automated cleanup script
    cat > ~/.claude/cleanup.sh << 'EOF'
    #!/bin/bash
    # Run daily via cron
    find ~/.claude/cache -type f -mtime +7 -delete
-   claude cache clear --old
+   # Manually clear old cache files
+   find ~/.claude/cache -type f -mtime +7 -delete
    EOF
    
    chmod +x ~/.claude/cleanup.sh
@@ -130,13 +132,13 @@ du -sh ~/.claude/cache/
 
 ```bash
 # Check current usage
-claude cost --detailed
+/cost --detailed
 
 # Monitor token consumption
 claude --track-tokens "your command"
 
 # View historical usage
-claude cost --history --days 7
+/cost --history --days 7
 ```
 
 ### Solution Steps
@@ -147,10 +149,10 @@ claude cost --history --days 7
    claude "Analyze only authentication in src/auth.py"
    
    # Clear conversation context
-   claude clear
+   /clear
    
    # Compact context
-   claude compact "Focus on security issues"
+   /compact "Focus on security issues"
    ```
 
 2. **Split large tasks**
@@ -185,8 +187,9 @@ claude cost --history --days 7
 ### Quick Diagnosis
 
 ```bash
-# Profile hook execution
-claude hook profile [hook-name]
+# Check hook execution in logs
+# Look for hook timing in debug output
+claude --debug "test command" 2>&1 | grep hook
 
 # Check hook timing
 grep "duration" ~/.claude/logs/hooks.log
@@ -414,20 +417,22 @@ plt.savefig('performance_report.png')
 ### Quick Performance Boost
 
 ```bash
-# 1. Clear all caches
-claude cache clear --all
+# 1. Clear conversation context and caches
+/clear
+# Manually clear cache files if needed
+rm -rf ~/.claude/cache/*
 
 # 2. Reset to minimal config
 cp ~/.claude/config.json ~/.claude/config.backup
 echo '{"model": "sonnet", "minimal": true}' > ~/.claude/config.json
 
 # 3. Disable non-essential features
-claude config set telemetry false
-claude config set auto_update false
-claude config set preload_agents false
+/config set telemetry false
+/config set auto_update false
+/config set preload_agents false
 
 # 4. Restart Claude Code
-claude restart
+# Note: There's no restart command - exit and restart Claude Code
 ```
 
 ### Performance Checklist
@@ -468,9 +473,9 @@ echo "Recommendations:"
 
 | Command | Purpose |
 |---------|---------|
-| `claude cost` | Check token usage |
-| `claude cache clear` | Clear cache |
-| `claude compact` | Reduce context |
+| `/cost` | Check token usage |
+| `/clear` | Clear context |
+| `/compact` | Reduce context |
 | `claude --fast` | Fast mode |
 | `claude profile` | Profile execution |
 

@@ -14,7 +14,7 @@ Debug hooks that aren't working as expected in Claude Code.
 
 ```bash
 # View current configuration
-claude config list
+/config list
 
 # Check specific settings file
 cat .claude/settings.json | jq '.hooks'
