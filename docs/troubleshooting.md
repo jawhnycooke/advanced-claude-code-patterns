@@ -21,10 +21,10 @@ Solutions to common issues when working with Claude Code advanced patterns.
 ```bash
 # Check Claude Code status
 claude --version
-claude doctor
+/doctor
 
 # Check configurations
-claude config list
+/config list
 claude mcp list
 
 # Check agents (both locations)
@@ -43,12 +43,12 @@ env | grep CLAUDE
 
 | Symptom | Quick Fix |
 |---------|-----------|
-| Claude not responding | `claude restart` |
+| Claude not responding | Exit and restart Claude Code |
 | Agent not found | Check `~/.claude/agents/` (global) or `.claude/agents/` (project) |
 | Hook not triggering | Verify event name and enabled status |
 | MCP connection failed | `claude mcp restart [server-name]` |
 | High token usage | Check model selection (opus vs sonnet) |
-| Slow performance | Clear cache: `claude cache clear` |
+| Slow performance | Clear context with `/clear` |
 
 ## Agent Issues
 
@@ -85,7 +85,8 @@ chmod 644 .claude/agents/*.md      # Project
 
 4. **Reload agents:**
 ```bash
-claude reload agents
+# Note: Agents are automatically reloaded when files change
+# Or exit and restart Claude Code to reload
 ```
 
 ### Issue: Agent Using Wrong Model
@@ -216,8 +217,8 @@ name: my-agent
 
 3. **Test agent behavior:**
 ```bash
-# Validate structure
-claude validate agents
+# Manually validate structure
+# Check agent file format and frontmatter
 
 # Test character consistency
 response=$(claude --agent my-agent "test task")
@@ -252,12 +253,14 @@ cat .git/hooks/pre-commit
 
 # Should contain:
 #!/bin/sh
-claude hook trigger pre-commit
+# Hook script content goes here
+# Hooks are triggered automatically by Claude Code
 ```
 
 3. **Test hook manually:**
 ```bash
-claude hook trigger pre-commit --debug
+# Run hook script directly for testing
+bash -x ~/.claude/hooks/pre-commit.sh
 ```
 
 4. **Check conditions:**
@@ -374,8 +377,9 @@ which npm
 
 1. **Check workflow status:**
 ```bash
-claude workflow status [workflow-id]
-claude workflow logs [workflow-id]
+# Note: Workflow commands may vary by implementation
+# Check workflow status through your CI/CD system
+# Or use project-specific workflow commands
 ```
 
 2. **Identify blocking task:**
@@ -388,12 +392,14 @@ stages:
 
 3. **Force progression:**
 ```bash
-claude workflow continue [workflow-id] --skip-current
+# Skip current stage (implementation-specific)
+# Check your workflow system documentation
 ```
 
 4. **Restart workflow:**
 ```bash
-claude workflow restart [workflow-id] --from-stage [stage-name]
+# Restart workflow (implementation-specific)
+# Check your workflow system documentation
 ```
 
 ### Issue: Workflow Dependencies Not Met
@@ -451,7 +457,8 @@ state:
 
 2. **Recover from checkpoint:**
 ```bash
-claude workflow recover [workflow-id] --from-checkpoint
+# Recover from checkpoint (implementation-specific)
+# Check your workflow system documentation
 ```
 
 3. **Manual state recovery:**
@@ -638,7 +645,9 @@ resources:
 
 2. **Clear cache:**
 ```bash
-claude cache clear
+# Clear conversation context
+/clear
+# Clear cache files manually if needed
 rm -rf ~/.claude/cache/*
 ```
 
@@ -664,7 +673,7 @@ Error: Token limit exceeded (used 150k/128k)
 claude "Analyze only src/main.py"
 
 # Clear conversation
-claude clear
+/clear
 ```
 
 2. **Split into smaller tasks:**
@@ -868,7 +877,7 @@ cp -r .claude .claude.backup
 
 # Clean reset
 rm -rf .claude
-claude init
+/init
 
 # Restore configurations (choose destination)
 cp agents/* ~/.claude/agents/          # Global restore
@@ -879,13 +888,12 @@ cp hooks/* .claude/hooks/              # Project hooks
 
 **Corrupted Configuration:**
 ```bash
-# Validate configurations
-claude validate --all
+# Use doctor command to check system
+/doctor
 
-# Fix specific component
-claude validate --agents --fix
-claude validate --hooks --fix
-claude validate --workflows --fix
+# Manually check and fix configuration files
+# Check agents in ~/.claude/agents/ and .claude/agents/
+# Check hooks in ~/.claude/hooks/ and .claude/hooks/
 ```
 
 **Emergency Rollback:**
@@ -913,19 +921,17 @@ for line in log_file:
         if match:
             state = json.loads(match.group(1))
 
-# Restore state
-claude workflow restore --state state.json
+# Restore state manually
+# Copy state.json to appropriate location based on your workflow system
 ```
 
 **Cache Corruption:**
 ```bash
-# Clear and rebuild cache
-claude cache clear --all
-claude cache rebuild
+# Clear conversation context
+/clear
 
-# Selective clear
-claude cache clear --agents
-claude cache clear --workflows
+# Manually clear cache files if needed
+rm -rf ~/.claude/cache/*
 ```
 
 ## Debug Mode
