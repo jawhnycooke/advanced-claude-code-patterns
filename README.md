@@ -8,9 +8,9 @@ This comprehensive package provides everything you need to implement advanced Cl
 
 This package delivers **50+ production-ready components** that you can use immediately:
 
-- **13 Custom Agents** - Specialized AI assistants for architecture, security, performance, testing, UX, agile roles, and more
+- **18 Custom Agents** - Specialized AI assistants for architecture, security, performance, testing, UX, documentation, agile roles, and more
 - **12 Hook Configurations** - Automated quality gates, lifecycle management, and Python utilities  
-- **13 Slash Commands** - Quick actions with argument support for common developer tasks
+- **14 Slash Commands** - Quick actions with argument support for common developer tasks
 - **5 CLAUDE.md Templates** - Project-specific configurations
 - **14 Documentation Guides** - Comprehensive implementation instructions
 - **MCP Integration Patterns** - External tool integrations
@@ -23,6 +23,7 @@ This package delivers **50+ production-ready components** that you can use immed
 |--------------|--------------|------|
 | **New to Advanced Patterns** | [📖 Quick Start Guide](docs/quick-start.md) | Get running in 5 minutes with practical examples |
 | **Building Custom Agents** | [🤖 Agent Development Guide](docs/agents-guide.md) | Learn to create specialized AI assistants |
+| **Creating Documentation** | [📝 Documentation Agents](agents/) | Auto-generate tutorials, how-tos, references |
 | **Agile Team Support** | [🎯 Agile Agents Guide](docs/agile-agents-guide.md) | Complete agile team in AI agents |
 | **Setting Up a Project** | [📁 CLAUDE.md Templates](templates/) | Choose a template for your project type |
 | **Debugging Issues** | [🔧 Troubleshooting Guide](docs/troubleshooting.md) | Solve common problems quickly |
@@ -82,7 +83,20 @@ cp commands/code-review.md .claude/commands/    # Project-specific
 claude "/code-review PR #123"
 ```
 
-### Example 3: Set Up Quality Gates
+### Example 3: Generate Smart Documentation
+```bash
+# Copy the documentation command and agents
+cp commands/create-docs.md ~/.claude/commands/
+cp agents/docs-*.md ~/.claude/agents/
+
+# Generate documentation automatically routed to the right type
+claude "/create-docs 'authentication system' --tutorial"  # Learning guide
+claude "/create-docs 'deploy to AWS' --howto"             # Task guide
+claude "/create-docs 'API endpoints' --reference"         # Technical reference
+claude "/create-docs 'microservices' --explanation"       # Concept explanation
+```
+
+### Example 4: Set Up Quality Gates
 ```bash
 # Copy the quality gates hook
 cp hooks/quality_gates.json ~/.claude/hooks/
@@ -110,25 +124,31 @@ claude-code-advanced-patterns/
 ├── 🤝 CONTRIBUTING.md              # Contribution guidelines
 ├── 📄 LICENSE                      # MIT License
 │
-├── 🤖 agents/                      # 13 production-ready agents
+├── 🤖 agents/                      # 18 production-ready agents
 │   ├── architect.md               # System architecture design (opus)
 │   ├── security-reviewer.md       # OWASP security analysis (opus)
 │   ├── performance-optimizer.md   # System optimization (opus)
 │   ├── test-generator.md          # Test suite creation (sonnet)
 │   ├── documentation-agent.md     # Auto documentation (sonnet)
+│   ├── docs-tutorial-agent.md     # Learning-oriented docs (sonnet)
+│   ├── docs-howto-agent.md        # Task-oriented docs (sonnet)
+│   ├── docs-reference-agent.md    # Information-oriented docs (sonnet)
+│   ├── docs-explanation-agent.md  # Understanding-oriented docs (sonnet)
 │   ├── deployment-agent.md        # CI/CD orchestration (sonnet)
 │   ├── code-archaeologist.md      # Legacy code analysis (opus)
 │   ├── ux-optimizer.md            # UX/DX optimization (opus)
+│   ├── ui-designer.md             # UI implementation (sonnet)
 │   ├── project-manager.md         # Product strategy & requirements (opus)
 │   ├── scrum-master.md           # Agile facilitation (sonnet)
 │   ├── product-owner.md          # Product vision & backlog (opus)
 │   ├── business-analyst.md       # Requirements analysis (sonnet)
 │   └── qa-engineer.md            # Quality assurance (sonnet)
 │
-├── 🎮 commands/                    # 13 slash commands with argument support
+├── 🎮 commands/                    # 14 slash commands with argument support
 │   ├── analyze-performance.md     # Performance analysis
 │   ├── code-review.md             # Comprehensive review
 │   ├── create-documentation.md    # Doc generation
+│   ├── create-docs.md             # Smart documentation routing
 │   ├── epcc/                      # EPCC workflow commands (4)
 │   │   ├── epcc-explore.md        # Exploration phase
 │   │   ├── epcc-plan.md           # Planning phase
@@ -319,6 +339,7 @@ This package addresses these production scenarios:
 - Smart code refactoring
 - API documentation generation
 - Legacy code modernization
+- Purpose-driven documentation (tutorials, how-tos, references, explanations)
 
 ### Operations & Deployment
 - CI/CD pipeline orchestration
