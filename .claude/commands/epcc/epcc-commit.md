@@ -25,12 +25,13 @@ If no commit message was provided above, I'll generate one based on the work doc
 ## Parallel Commit Subagents
 
 Deploy specialized finalization agents concurrently:
+@qa-engineer @security-reviewer @documentation-agent @deployment-agent @project-manager
 
-1. **qa-engineer**: Run final test suite and validate quality metrics
-2. **security-reviewer**: Perform final security scan before commit
-3. **documentation-agent**: Ensure all documentation is complete and updated
-4. **deployment-agent**: Validate deployment readiness and CI/CD configuration
-5. **project-manager**: Review completion against original requirements.
+- @qa-engineer: Run final test suite and validate quality metrics
+- @security-reviewer: Perform final security scan before commit
+- @documentation-agent: Ensure all documentation is complete and updated
+- @deployment-agent: Validate deployment readiness and CI/CD configuration
+- @project-manager: Review completion against original requirements
 
 Note: Original requirements can be found in EPCC_PLAN.md if it exists.
 

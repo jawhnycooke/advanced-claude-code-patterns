@@ -28,14 +28,13 @@ If no target specified, perform comprehensive performance analysis.
 ## Parallel Performance Subagents
 
 Deploy concurrent analysis agents:
+@performance-profiler @optimization-engineer @system-designer @code-archaeologist
 
-1. **CPU Profiler**: Think about computational complexity
-2. **Memory Analyzer**: Analyze memory usage patterns
-3. **I/O Inspector**: Think hard about disk and network bottlenecks
-4. **Database Optimizer**: Examine query performance
-5. **Cache Strategist**: Think about caching opportunities
-
-All subagents run in parallel, providing comprehensive performance insights.
+These specialized subagents provide comprehensive performance insights:
+- @performance-profiler: Analyze and measure performance bottlenecks
+- @optimization-engineer: Implement performance improvements and optimizations
+- @system-designer: Examine system design and scalability patterns
+- @code-archaeologist: Identify legacy performance issues and optimization opportunities
 
 ## Primary Tasks
 
@@ -152,12 +151,13 @@ Provide a structured performance report including:
 
 ## Integration with Agents
 
-This command can trigger the performance-optimizer agent for deeper analysis:
+This command can trigger specialized agents for deeper analysis:
+@performance-profiler @optimization-engineer
 
 ```yaml
-agent: performance-optimizer
-model: opus
-task: "Deep performance analysis with profiling"
+agents: [@performance-profiler, @optimization-engineer]
+models: [sonnet, opus]
+task: "Deep performance analysis with profiling and optimization"
 ```
 
 Remember to:

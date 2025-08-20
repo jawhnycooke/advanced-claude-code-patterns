@@ -111,7 +111,8 @@ class TestUserAPI:
 ### Agents for This Project
 - `security-reviewer`: Reviews code for OWASP vulnerabilities
 - `test-generator`: Creates comprehensive test suites
-- `performance-optimizer`: Optimizes database queries and API endpoints
+- `performance-profiler`: Analyzes performance bottlenecks
+- `optimization-engineer`: Implements performance optimizations
 - `documentation-agent`: Maintains API documentation
 
 ### Hooks

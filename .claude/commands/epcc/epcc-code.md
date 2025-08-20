@@ -32,12 +32,13 @@ If no specific task was provided above, check `EPCC_PLAN.md` for the next task t
 ## Parallel Coding Subagents
 
 Deploy specialized coding agents concurrently:
+@test-generator @optimization-engineer @security-reviewer @documentation-agent @ux-optimizer
 
-1. **test-generator**: Write tests BEFORE implementation (TDD approach)
-2. **performance-optimizer**: Optimize algorithms and queries during implementation
-3. **security-reviewer**: Validate security as code is written
-4. **documentation-agent**: Generate inline documentation and API docs
-5. **ux-optimizer**: Ensure user experience best practices in implementation
+- @test-generator: Write tests BEFORE implementation (TDD approach)
+- @optimization-engineer: Optimize algorithms and queries during implementation
+- @security-reviewer: Validate security as code is written
+- @documentation-agent: Generate inline documentation and API docs
+- @ux-optimizer: Ensure user experience best practices in implementation
 
 Note: Review patterns in EPCC_EXPLORE.md and follow the plan in EPCC_PLAN.md if they exist.
 

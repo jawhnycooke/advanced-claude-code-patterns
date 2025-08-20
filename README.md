@@ -8,7 +8,7 @@ This comprehensive package provides everything you need to implement advanced Cl
 
 This package delivers **50+ production-ready components** that you can use immediately:
 
-- **18 Custom Agents** - Specialized AI assistants for architecture, security, performance, testing, UX, documentation, agile roles, and more
+- **23 Custom Agents** - Specialized AI assistants for architecture, security, performance, testing, UX, documentation, agile roles, and more
 - **12 Hook Configurations** - Automated quality gates, lifecycle management, and Python utilities  
 - **14 Slash Commands** - Quick actions with argument support for common developer tasks
 - **5 CLAUDE.md Templates** - Project-specific configurations
@@ -115,19 +115,17 @@ git commit -m "feat: new feature"
 claude-code-advanced-patterns/
 │
 ├── 📖 README.md                    # You are here!
-├── 📄 PRODUCT.md                   # Requirements specification
 ├── 📝 CLAUDE.md                    # Project configuration
-├── 📋 PLANNING.md                  # Project planning documentation
-├── 📊 PROJECT_SUMMARY.md           # Project overview
-├── 🎯 ALIGNMENT_ASSESSMENT.md      # Goals alignment assessment
-├── ✅ SUBMISSION_READY.md          # Submission readiness checklist
 ├── 🤝 CONTRIBUTING.md              # Contribution guidelines
 ├── 📄 LICENSE                      # MIT License
 │
-├── 🤖 agents/                      # 18 production-ready agents
-│   ├── architect.md               # System architecture design (opus)
+├── 🤖 agents/                      # 23 production-ready agents
+│   ├── system-designer.md         # High-level system architecture (sonnet)
+│   ├── tech-evaluator.md          # Technology choice evaluation (sonnet)
+│   ├── architecture-documenter.md # Architecture documentation (opus)
 │   ├── security-reviewer.md       # OWASP security analysis (opus)
-│   ├── performance-optimizer.md   # System optimization (opus)
+│   ├── performance-profiler.md    # Performance bottleneck analysis (sonnet)
+│   ├── optimization-engineer.md   # Performance optimization implementation (opus)
 │   ├── test-generator.md          # Test suite creation (sonnet)
 │   ├── documentation-agent.md     # Auto documentation (sonnet)
 │   ├── docs-tutorial-agent.md     # Learning-oriented docs (sonnet)

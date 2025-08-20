@@ -24,14 +24,13 @@ If no feature description was provided above, ask the user: "What feature would 
 ## Parallel TDD Subagents
 
 Deploy concurrent test specialists:
+@test-generator @qa-engineer @performance-profiler @security-reviewer
 
-1. **test-generator**: Design isolated unit tests and test suites
-2. **test-generator**: Create component interaction and integration tests
-3. **qa-engineer**: Identify boundary conditions and edge cases
-4. **performance-optimizer**: Create performance benchmarks and validations
-5. **security-reviewer**: Design security test cases and vulnerability checks
-
-All subagents work in parallel to create comprehensive test coverage BEFORE implementation.
+All subagents work in parallel to create comprehensive test coverage BEFORE implementation:
+- @test-generator: Design isolated unit tests, component interaction tests, and integration test suites
+- @qa-engineer: Identify boundary conditions, edge cases, and quality validation scenarios
+- @performance-profiler: Create performance benchmarks and validation tests
+- @security-reviewer: Design security test cases and vulnerability checks
 
 ## Strict TDD Process
 

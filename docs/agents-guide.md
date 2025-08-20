@@ -65,11 +65,14 @@ tools: [Read, Write, Edit]
 
 ### Security & Performance
 - `security-reviewer`: Vulnerability analysis
-- `performance-optimizer`: Bottleneck identification
+- `performance-profiler`: Performance bottleneck analysis
+- `optimization-engineer`: Performance optimization implementation
 - `cost-optimizer`: Resource optimization
 
 ### Architecture & Design
-- `architect`: System design decisions
+- `system-designer`: High-level system architecture
+- `tech-evaluator`: Technology choice evaluation
+- `architecture-documenter`: Architecture documentation creation
 - `api-designer`: RESTful API design
 - `database-optimizer`: Query and schema optimization
 

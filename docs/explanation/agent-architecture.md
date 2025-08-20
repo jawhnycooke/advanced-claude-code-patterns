@@ -99,9 +99,14 @@ stages:
     agent: code-archaeologist
     output: analysis_report
   
-  - name: optimize
-    agent: performance-optimizer
+  - name: profile
+    agent: performance-profiler
     input: analysis_report
+    output: performance_report
+  
+  - name: optimize
+    agent: optimization-engineer
+    input: performance_report
     output: optimization_plan
   
   - name: implement
@@ -164,7 +169,7 @@ For agents that orchestrate other agents:
 ```markdown
 ## When I need specialized help:
 - Security issues → security-reviewer
-- Performance problems → performance-optimizer
+- Performance problems → performance-profiler + optimization-engineer
 - Test creation → test-generator
 - Documentation → documentation-agent
 ```

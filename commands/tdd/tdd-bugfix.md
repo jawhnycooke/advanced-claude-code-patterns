@@ -104,11 +104,12 @@ def test_prevents_token_expiry_regression():
 ## Parallel Bug Analysis Subagents
 
 Deploy concurrent debugging specialists:
+@code-archaeologist @business-analyst @test-generator @qa-engineer
 
-1. **code-archaeologist**: Analyze underlying issues and uncover root causes
-2. **business-analyst**: Evaluate affected components and impact analysis
-3. **test-generator**: Design comprehensive test suite to prevent regression
-4. **code-archaeologist**: Search for related issues and similar patterns
+- @code-archaeologist: Analyze underlying issues, uncover root causes, and search for related patterns
+- @business-analyst: Evaluate affected components and perform impact analysis
+- @test-generator: Design comprehensive test suite to prevent regression and ensure coverage
+- @qa-engineer: Validate fix quality and identify potential side effects
 
 ## Bug Categories
 

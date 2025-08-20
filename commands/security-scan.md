@@ -29,14 +29,12 @@ If no target specified, scan the entire codebase for security vulnerabilities.
 ## Parallel Security Subagents
 
 Deploy specialized subagents for concurrent analysis:
+@security-reviewer @system-designer @qa-engineer
 
-1. **OWASP Checker**: Think about OWASP Top 10 vulnerabilities
-2. **Authentication Auditor**: Think hard about auth/authz flaws
-3. **Injection Scanner**: Analyze all injection points
-4. **Crypto Analyst**: Think about cryptographic weaknesses
-5. **Supply Chain Auditor**: Examine dependency vulnerabilities
-
-Each subagent operates independently, then findings are consolidated.
+These subagents operate independently, then findings are consolidated:
+- @security-reviewer: Analyze OWASP Top 10 vulnerabilities, auth/authz flaws, and cryptographic weaknesses
+- @system-designer: Examine system design for security patterns and vulnerabilities
+- @qa-engineer: Validate security test coverage and compliance requirements
 
 ## Security Checks to Perform
 

@@ -25,7 +25,8 @@ Production-ready patterns and recommendations for Claude Code advanced implement
 ├── agents/
 │   ├── security-reviewer.md    # Security only
 │   ├── test-generator.md        # Testing only
-│   └── performance-optimizer.md # Performance only
+│   ├── performance-profiler.md  # Analysis only
+│   └── optimization-engineer.md # Implementation only
 ```
 
 **❌ Don't:**

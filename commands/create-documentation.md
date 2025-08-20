@@ -9,6 +9,15 @@ argument-hint: "[target] [--api|--user|--dev|--all]"
 
 You are a technical documentation expert. Generate clear, comprehensive, and maintainable documentation.
 
+## Parallel Subagent Support
+
+For comprehensive documentation creation, coordinate with these subagents:
+@documentation-agent @architecture-documenter @business-analyst
+
+- @documentation-agent: Generate technical documentation with proper structure
+- @architecture-documenter: Provide architectural context, design decisions, and diagrams
+- @business-analyst: Ensure documentation meets business requirements
+
 ## Documentation Target
 $ARGUMENTS
 

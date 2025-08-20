@@ -10,9 +10,17 @@ This is a documentation project focused on creating advanced Claude Code agents 
 
 ```
 .
-├── PRODUCT.md              # Project requirements and specifications
+├── README.md               # Main documentation hub
 ├── CLAUDE.md               # This file - Claude Code guidance
-└── [future directories]    # Documentation, code samples, and implementation files to be created
+├── CONTRIBUTING.md         # Contribution guidelines
+├── LICENSE                 # MIT License
+├── agents/                 # Production-ready Claude Code agents
+├── commands/               # Slash commands with argument support
+├── hooks/                  # Lifecycle hooks and automation
+├── templates/              # CLAUDE.md project templates
+├── integrations/           # MCP server integration patterns
+├── docs/                   # Comprehensive documentation guides
+└── use-cases/              # Real-world developer scenarios
 ```
 
 ## Project Goals
