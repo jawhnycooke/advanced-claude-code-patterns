@@ -395,3 +395,4 @@ deps/
 
 # Custom project ignores
 # Add any project-specific patterns below
+CLAUDE.md
