@@ -44,7 +44,7 @@ mkdir -p .claude/{agents,commands}
 # Copy templates
 cp -r templates/* .claude/
 
-# Choose a project template (e.g., python_web_app)
+# OPTIONAL: Choose a project template (e.g., python_web_app)
 cp templates/python_web_app.md .claude/CLAUDE.md
 ```
 
@@ -100,14 +100,14 @@ tools: [Read, Write, WebSearch]
 ## API Patterns
 
 ### Resource Design
-```http
+
 GET /api/v1/users          # Collection
 GET /api/v1/users/{id}     # Single resource
 POST /api/v1/users         # Create
 PUT /api/v1/users/{id}     # Full update
 PATCH /api/v1/users/{id}   # Partial update
 DELETE /api/v1/users/{id}  # Remove
-```
+
 
 ## Output Format
 
