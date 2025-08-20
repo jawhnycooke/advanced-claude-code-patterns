@@ -84,6 +84,7 @@ graph TD
 - [Implement EPCC for Bug Fixes](how-to/implement-epcc-for-bugs.md)
 - [Implement EPCC for Refactoring](how-to/implement-epcc-for-refactoring.md)
 - [Set Up TDD Workflow](how-to/tdd-workflow.md)
+- [Create Documentation with Diataxis](../diataxis-workflow-guide.md)
 - [Automate PR Reviews](how-to/pr-automation.md)
 - [Create CI/CD Integration](how-to/cicd-integration.md)
 - [Generate Documentation Automatically](how-to/generate-docs.md)
@@ -120,6 +121,8 @@ graph TD
 
 ### 📝 Commands
 - [EPCC Commands Reference](reference/epcc-commands.md)
+- [Diataxis Commands Reference](reference/commands/diataxis.md)
+- [TDD Commands Reference](reference/commands/tdd.md)
 - [Command Index](reference/commands/index.md)
 - [Command Syntax Reference](reference/commands/syntax.md)
 - [Custom Command API](reference/commands/api.md)

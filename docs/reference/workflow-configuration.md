@@ -8,6 +8,7 @@ Claude Code supports multiple workflow types that can be configured at global an
 
 - **EPCC Workflow**: Explore-Plan-Code-Commit systematic development
 - **TDD Workflow**: Test-Driven Development automation
+- **Diataxis Workflow**: Documentation creation following the Diataxis framework
 - **Quality Gates**: Automated quality checks and gates
 - **Custom Workflows**: User-defined automation patterns
 
@@ -304,6 +305,75 @@ Claude Code supports multiple workflow types that can be configured at global an
   }
 }
 ```
+
+## Diataxis Workflow Configuration
+
+### Basic Diataxis Configuration
+```json
+{
+  "workflows": {
+    "diataxis": {
+      "enabled": true,
+      "outputDir": "./docs",
+      "defaultMode": "full",
+      "autoIndex": true
+    }
+  }
+}
+```
+
+### Advanced Diataxis Configuration
+```json
+{
+  "workflows": {
+    "diataxis": {
+      "enabled": true,
+      "outputDir": "./docs",
+      "defaultMode": "full",
+      "autoIndex": true,
+      "crossReference": true,
+      "generateDiagrams": true,
+      "templates": {
+        "tutorial": "./templates/tutorial.md",
+        "howto": "./templates/howto.md",
+        "reference": "./templates/reference.md",
+        "explanation": "./templates/explanation.md"
+      },
+      "modes": {
+        "full": ["tutorial", "howto", "reference", "explanation"],
+        "learning": ["tutorial", "explanation"],
+        "working": ["howto", "reference"],
+        "understanding": ["explanation", "reference"]
+      },
+      "agents": {
+        "tutorial": ["docs-tutorial-agent", "test-generator", "ux-optimizer"],
+        "howto": ["docs-howto-agent", "code-archaeologist", "system-designer"],
+        "reference": ["docs-reference-agent", "documentation-agent"],
+        "explanation": ["docs-explanation-agent", "architecture-documenter"]
+      },
+      "validation": {
+        "checkExamples": true,
+        "validateLinks": true,
+        "spellCheck": true,
+        "formatCheck": true
+      }
+    }
+  }
+}
+```
+
+### Diataxis Commands
+- `/diataxis/diataxis-docs` - Master orchestrator
+- `/diataxis/diataxis-tutorial` - Learning documentation
+- `/diataxis/diataxis-howto` - Task documentation
+- `/diataxis/diataxis-reference` - Technical specs
+- `/diataxis/diataxis-explanation` - Conceptual docs
+
+### Diataxis Output Files
+- `DIATAXIS_TUTORIAL.md` - Step-by-step learning guide
+- `DIATAXIS_HOWTO.md` - Problem-solving guide
+- `DIATAXIS_REFERENCE.md` - Technical specifications
+- `DIATAXIS_EXPLANATION.md` - Conceptual understanding
 
 ## Quality Gates Configuration
 

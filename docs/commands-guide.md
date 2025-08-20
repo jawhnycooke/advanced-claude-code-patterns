@@ -29,13 +29,17 @@ Commands can be stored in three locations:
 ### Command Organization
 
 Commands can be organized into subdirectories for better grouping:
-- `commands/epcc/` - EPCC workflow commands
-- `commands/tdd/` - TDD workflow commands
-- `commands/` - General commands
+- `commands/diataxis/` - Diataxis documentation workflow commands (5 commands)
+- `commands/epcc/` - EPCC development workflow commands (4 commands)
+- `commands/tdd/` - TDD workflow commands (2 commands)
+- `commands/` - General commands (8 commands)
+
+Total: **19 slash commands** available
 
 When using subdirectories, the command path includes the directory:
-- `/epcc/epcc-explore` - Runs the explore command from the epcc folder
-- `/tdd/tdd-feature` - Runs the feature command from the tdd folder
+- `/diataxis/diataxis-tutorial` - Creates learning-oriented documentation
+- `/epcc/epcc-explore` - Runs the explore phase of EPCC
+- `/tdd/tdd-feature` - Implements a feature using TDD
 
 ## Creating Commands
 
@@ -340,6 +344,51 @@ Analyze arguments for complexity indicators:
 - Complex task with --complex: Think before acting
 - Critical task with --critical: Think hard about implications
 - Architectural change: Ultrathink about long-term impact
+```
+
+## Workflow Commands
+
+### Diataxis Documentation Workflow
+
+The Diataxis workflow provides systematic documentation creation following the four-quadrant framework:
+
+```bash
+# Master orchestrator - analyzes and routes
+/diataxis/diataxis-docs "authentication system" --full
+
+# Individual documentation types
+/diataxis/diataxis-tutorial "Getting started with React"    # Learning
+/diataxis/diataxis-howto "Deploy to production"             # Tasks
+/diataxis/diataxis-reference "REST API endpoints"           # Lookup
+/diataxis/diataxis-explanation "Microservices architecture" # Understanding
+```
+
+**Key Features:**
+- Automatic documentation type detection
+- Parallel agent deployment for comprehensive coverage
+- Cross-referencing between documentation types
+- Output files: `DIATAXIS_[TYPE].md`
+
+### EPCC Development Workflow
+
+Systematic development through four phases:
+
+```bash
+/epcc/epcc-explore "user authentication"  # Analyze codebase
+/epcc/epcc-plan                           # Create implementation plan
+/epcc/epcc-code                           # Execute implementation
+/epcc/epcc-commit                         # Commit with message
+```
+
+**Output files:** `EPCC_EXPLORE.md`, `EPCC_PLAN.md`, `EPCC_CODE.md`
+
+### TDD Workflow
+
+Test-driven development automation:
+
+```bash
+/tdd/tdd-feature "shopping cart"  # Implement feature with TDD
+/tdd/tdd-bugfix "payment issue"   # Fix bug with tests first
 ```
 
 ## Examples
