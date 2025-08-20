@@ -6,11 +6,11 @@ This comprehensive package provides everything you need to implement advanced Cl
 
 ## 🎯 What's Included
 
-This package delivers **50+ production-ready components** that you can use immediately:
+This package delivers **55+ production-ready components** that you can use immediately:
 
 - **23 Custom Agents** - Specialized AI assistants for architecture, security, performance, testing, UX, documentation, agile roles, and more
 - **12 Hook Configurations** - Automated quality gates, lifecycle management, and Python utilities  
-- **14 Slash Commands** - Quick actions with argument support for common developer tasks
+- **19 Slash Commands** - Quick actions with argument support including complete Diataxis documentation workflow
 - **5 CLAUDE.md Templates** - Project-specific configurations
 - **14 Documentation Guides** - Comprehensive implementation instructions
 - **MCP Integration Patterns** - External tool integrations
@@ -142,11 +142,17 @@ claude-code-advanced-patterns/
 │   ├── business-analyst.md       # Requirements analysis (sonnet)
 │   └── qa-engineer.md            # Quality assurance (sonnet)
 │
-├── 🎮 commands/                    # 14 slash commands with argument support
+├── 🎮 commands/                    # 19 slash commands with argument support
 │   ├── analyze-performance.md     # Performance analysis
 │   ├── code-review.md             # Comprehensive review
 │   ├── create-documentation.md    # Doc generation
 │   ├── create-docs.md             # Smart documentation routing
+│   ├── diataxis/                  # Diataxis documentation workflow (5)
+│   │   ├── diataxis-docs.md       # Documentation orchestrator
+│   │   ├── diataxis-tutorial.md   # Learning-oriented docs
+│   │   ├── diataxis-howto.md      # Task-oriented guides
+│   │   ├── diataxis-reference.md  # Information-oriented specs
+│   │   └── diataxis-explanation.md # Understanding-oriented docs
 │   ├── epcc/                      # EPCC workflow commands (4)
 │   │   ├── epcc-explore.md        # Exploration phase
 │   │   ├── epcc-plan.md           # Planning phase
