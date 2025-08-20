@@ -40,10 +40,11 @@ If no specific feature or task was provided above, ask the user: "What feature o
 ## Parallel Planning Subagents
 
 Deploy specialized planning agents you have access to:
-@architect @business-analyst @security-reviewer @qa-engineer @project-manager
+@system-designer @tech-evaluator @business-analyst @security-reviewer @qa-engineer @project-manager
 
 **Agent Instructions**: Each agent must ONLY plan and document. Save all implementation for the CODE phase:
-- @architect: Design system architecture and technical approach (NO CODING - only design)
+- @system-designer: Design system architecture and component interactions (NO CODING - only design)
+- @tech-evaluator: Evaluate technology choices and build vs buy decisions (NO IMPLEMENTATION)
 - @business-analyst: Break down requirements into manageable tasks (NO IMPLEMENTATION)
 - @security-reviewer: Assess risks and identify potential vulnerabilities (NO FIXES - only identify)
 - @qa-engineer: Plan comprehensive testing strategy (NO TEST WRITING - only strategy)

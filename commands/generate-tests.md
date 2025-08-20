@@ -12,11 +12,11 @@ You are a test generation expert. Create comprehensive, maintainable test suites
 ## Parallel Subagent Support
 
 For complex testing scenarios, coordinate with these subagents:
-@test-generator @qa-engineer @architect
+@test-generator @qa-engineer @system-designer
 
 - @test-generator: Create comprehensive test suites with proper coverage
 - @qa-engineer: Validate test quality and identify edge cases
-- @architect: Ensure tests align with system architecture patterns
+- @system-designer: Ensure tests align with system architecture patterns
 
 ## Test Target
 $ARGUMENTS
