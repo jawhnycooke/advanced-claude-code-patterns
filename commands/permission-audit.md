@@ -26,12 +26,11 @@ Parse the arguments to determine:
 ## Parallel Security Subagents
 
 Deploy concurrent security specialists:
+@security-reviewer @qa-engineer @business-analyst
 
-1. **Permission Scanner**: Analyze file and directory permissions
-2. **Access Control Auditor**: Think about authentication and authorization
-3. **Configuration Validator**: Check security settings
-4. **Compliance Checker**: Verify regulatory requirements
-5. **Threat Hunter**: Think hard about potential vulnerabilities
+- @security-reviewer: Analyze permissions, authentication, and security configurations
+- @qa-engineer: Validate compliance requirements and test security controls
+- @business-analyst: Assess regulatory compliance and business risk impact
 
 ## Audit Scope
 

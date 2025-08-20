@@ -40,14 +40,14 @@ If no specific feature or task was provided above, ask the user: "What feature o
 ## Parallel Planning Subagents
 
 Deploy specialized planning agents you have access to:
+@architect @business-analyst @security-reviewer @qa-engineer @project-manager
 
-1. **architect**: Design system architecture and technical approach (NO CODING - only design)
-2. **business-analyst**: Break down requirements into manageable tasks (NO IMPLEMENTATION)
-3. **security-reviewer**: Assess risks and identify potential vulnerabilities (NO FIXES - only identify)
-4. **qa-engineer**: Plan comprehensive testing strategy (NO TEST WRITING - only strategy)
-5. **project-manager**: Calculate realistic timelines and resource allocation (PLANNING ONLY)
-
-**Agent Instructions**: Each agent must ONLY plan and document. Save all implementation for the CODE phase.
+**Agent Instructions**: Each agent must ONLY plan and document. Save all implementation for the CODE phase:
+- @architect: Design system architecture and technical approach (NO CODING - only design)
+- @business-analyst: Break down requirements into manageable tasks (NO IMPLEMENTATION)
+- @security-reviewer: Assess risks and identify potential vulnerabilities (NO FIXES - only identify)
+- @qa-engineer: Plan comprehensive testing strategy (NO TEST WRITING - only strategy)
+- @project-manager: Calculate realistic timelines and resource allocation (PLANNING ONLY)
 
 Note: You can find details about the codebase in EPCC_EXPLORE.md if it exists.
 

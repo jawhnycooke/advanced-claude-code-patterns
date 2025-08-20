@@ -28,12 +28,13 @@ For critical changes (> 500 lines or security-related): Think harder about all i
 ## Parallel Subagent Analysis
 
 When reviewing complex code, deploy parallel subagents:
-1. **security-reviewer**: Analyze security vulnerabilities and OWASP compliance
-2. **performance-optimizer**: Evaluate performance implications and bottlenecks
-3. **qa-engineer**: Verify test completeness and quality assurance
-4. **architect**: Assess design patterns and architectural decisions
+@security-reviewer @performance-optimizer @qa-engineer @architect
 
-All subagents work concurrently for comprehensive analysis.
+These subagents work concurrently for comprehensive analysis:
+- @security-reviewer: Analyze security vulnerabilities and OWASP compliance
+- @performance-optimizer: Evaluate performance implications and bottlenecks
+- @qa-engineer: Verify test completeness and quality assurance
+- @architect: Assess design patterns and architectural decisions
 
 ## Review Scope
 

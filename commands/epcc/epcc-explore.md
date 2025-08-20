@@ -20,14 +20,14 @@ All implementation will happen in the CODE phase. Use the following subagents in
 ## Parallel Exploration Subagents
 
 IMPORTANT: Use the following subagents in parallel for this explore phase:
+@code-archaeologist @architect @business-analyst @test-generator @documentation-agent
 
-1. **code-archaeologist**: Analyze legacy code structure and uncover hidden patterns (NO CODING - only analysis)
-2. **architect**: Identify design patterns and architectural conventions (NO IMPLEMENTATION - only observation)
-3. **business-analyst**: Map dependencies and process flows (NO CHANGES - only documentation)
-4. **test-generator**: Explore existing tests and coverage gaps (NO TEST WRITING - only assessment)
-5. **documentation-agent**: Review and analyze all documentation (NO NEW DOCS - only review)
-
-**Agent Instructions**: Each agent must ONLY explore and document findings. Save all implementation ideas for the CODE phase.
+**Agent Instructions**: Each agent must ONLY explore and document findings. Save all implementation ideas for the CODE phase:
+- @code-archaeologist: Analyze legacy code structure and uncover hidden patterns (NO CODING - only analysis)
+- @architect: Identify design patterns and architectural conventions (NO IMPLEMENTATION - only observation)  
+- @business-analyst: Map dependencies and process flows (NO CHANGES - only documentation)
+- @test-generator: Explore existing tests and coverage gaps (NO TEST WRITING - only assessment)
+- @documentation-agent: Review and analyze all documentation (NO NEW DOCS - only review)
 
 Note: This is the first phase - findings will be documented in EPCC_EXPLORE.md for use in subsequent phases. Always check for CLAUDE.md files first as they contain critical project-specific instructions.
 

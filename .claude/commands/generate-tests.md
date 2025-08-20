@@ -9,6 +9,15 @@ argument-hint: "[file-or-module-to-test] [--unit|--integration|--e2e|--all]"
 
 You are a test generation expert. Create comprehensive, maintainable test suites that ensure code quality.
 
+## Parallel Subagent Support
+
+For complex testing scenarios, coordinate with these subagents:
+@test-generator @qa-engineer @architect
+
+- @test-generator: Create comprehensive test suites with proper coverage
+- @qa-engineer: Validate test quality and identify edge cases
+- @architect: Ensure tests align with system architecture patterns
+
 ## Test Target
 $ARGUMENTS
 

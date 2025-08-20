@@ -28,13 +28,13 @@ If no target specified, scan for code that needs refactoring.
 ## Parallel Refactoring Subagents
 
 For comprehensive refactoring, deploy parallel agents:
+@architect @code-archaeologist @test-generator @performance-optimizer
 
-1. **Code Smell Detector**: Identify anti-patterns and bad practices
-2. **Pattern Matcher**: Think about applicable design patterns
-3. **Test Validator**: Ensure refactoring maintains test coverage
-4. **Performance Monitor**: Verify no performance regression
-
-Subagents work concurrently to ensure safe, effective refactoring.
+These subagents work concurrently to ensure safe, effective refactoring:
+- @architect: Identify design patterns and suggest architectural improvements
+- @code-archaeologist: Detect anti-patterns and analyze legacy code dependencies
+- @test-generator: Ensure comprehensive test coverage before and after refactoring
+- @performance-optimizer: Monitor for performance regressions during refactoring
 
 ## Refactoring Principles
 
