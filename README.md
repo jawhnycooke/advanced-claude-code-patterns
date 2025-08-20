@@ -115,12 +115,7 @@ git commit -m "feat: new feature"
 claude-code-advanced-patterns/
 │
 ├── 📖 README.md                    # You are here!
-├── 📄 PRODUCT.md                   # Requirements specification
 ├── 📝 CLAUDE.md                    # Project configuration
-├── 📋 PLANNING.md                  # Project planning documentation
-├── 📊 PROJECT_SUMMARY.md           # Project overview
-├── 🎯 ALIGNMENT_ASSESSMENT.md      # Goals alignment assessment
-├── ✅ SUBMISSION_READY.md          # Submission readiness checklist
 ├── 🤝 CONTRIBUTING.md              # Contribution guidelines
 ├── 📄 LICENSE                      # MIT License
 │
