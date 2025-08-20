@@ -129,9 +129,9 @@ tools: [Read, Grep, WebSearch]  # Security scanning tools
 
 ### Use Opus for These Agents
 - **security-reviewer**: Vulnerability analysis
-- **performance-optimizer**: Bottleneck identification
+- **optimization-engineer**: Performance implementation
 - **code-archaeologist**: Legacy code analysis
-- **architecture-advisor**: Design decisions
+- **architecture-documenter**: Complex documentation
 - **incident-responder**: Production issues
 
 ## Efficient Agent Structure
@@ -156,9 +156,9 @@ All agents benefit from streamlined structure regardless of model:
 ## Example: Streamlined Architecture Agent
 
 ---
-name: architect
-description: MUST BE USED for system design decisions
-model: opus  # Complex reasoning required
+name: system-designer
+description: MUST BE USED for system architecture planning
+model: sonnet  # Pattern matching and analysis
 tools: [Read, Write, Grep, Glob]
 ---
 

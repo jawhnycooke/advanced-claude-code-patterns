@@ -224,7 +224,7 @@ def select_subagent_type(task_description):
     elif "test" in task_description:
         return "test-generator"
     elif "performance" in task_description:
-        return "performance-optimizer"
+        return "performance-profiler"
     elif task_is_complex and not domain_specific:
         return "general-purpose"
     else:

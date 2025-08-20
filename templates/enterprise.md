@@ -609,7 +609,8 @@ class BusinessMetrics:
 ### Agents for Enterprise
 - `compliance-auditor`: Automated compliance checks
 - `security-scanner`: Continuous security assessment
-- `performance-optimizer`: System performance tuning
+- `performance-profiler`: System performance analysis
+- `optimization-engineer`: Performance tuning implementation
 - `integration-specialist`: Enterprise system integration
 - `data-governor`: Data governance and quality
 
