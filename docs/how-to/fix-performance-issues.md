@@ -146,7 +146,7 @@ claude --track-tokens "your command"
 1. **Reduce context size**
    ```bash
    # Use targeted operations
-   claude "Analyze only authentication in src/auth.py"
+   Analyze only authentication in src/auth.py
    
    # Clear conversation context
    /clear

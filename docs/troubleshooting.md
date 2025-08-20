@@ -670,7 +670,7 @@ Error: Token limit exceeded (used 150k/128k)
 1. **Reduce context:**
 ```bash
 # Use targeted file reading
-claude "Analyze only src/main.py"
+Analyze only src/main.py
 
 # Clear conversation
 /clear

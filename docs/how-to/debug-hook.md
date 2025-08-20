@@ -255,7 +255,7 @@ echo '{"toolName": "Bash", "parameters": {"command": "rm -rf"}}' | ./hook-script
 echo "test content" > test.txt
 
 # Trigger hook through Claude
-claude "edit test.txt and add a comment"
+edit test.txt and add a comment
 
 # Check if hook ran
 grep "Hook executed" ~/hook-debug.log

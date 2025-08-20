@@ -151,35 +151,35 @@ graph LR
 
 ```bash
 # 1. Start with product strategy
-claude "Using the project-manager agent, help me create a PRD for a new search feature"
+Using the @project-manager agent, help me create a PRD for a new search feature
 
 # 2. Break down into user stories
-claude "Using the product-owner agent, create user stories from this PRD"
+Using the @product-owner agent, create user stories from this PRD
 
 # 3. Analyze requirements
-claude "Using the business-analyst agent, create detailed requirements and process flows"
+Using the @business-analyst agent, create detailed requirements and process flows
 
 # 4. Plan testing strategy
-claude "Using the qa-engineer agent, create a test plan for these requirements"
+Using the @qa-engineer agent, create a test plan for these requirements
 
 # 5. Facilitate sprint planning
-claude "Using the scrum-master agent, help facilitate sprint planning for these stories"
+Using the @scrum-master agent, help facilitate sprint planning for these stories
 ```
 
 ### Example 2: Process Improvement
 
 ```bash
 # 1. Analyze current process
-claude "Using the business-analyst agent, map our current deployment process"
+Using the @business-analyst agent, map our current deployment process
 
 # 2. Identify improvements
-claude "Using the scrum-master agent, identify bottlenecks in our workflow"
+Using the @scrum-master agent, identify bottlenecks in our workflow
 
 # 3. Define quality gates
-claude "Using the qa-engineer agent, define quality checkpoints"
+Using the @qa-engineer agent, define quality checkpoints
 
 # 4. Create implementation plan
-claude "Using the project-manager agent, create a roadmap for process improvements"
+Using the @project-manager agent, create a roadmap for process improvements
 ```
 
 ## Templates and Artifacts
@@ -271,16 +271,16 @@ Each agent provides specific templates and artifacts:
 ### Git Workflow Integration
 ```bash
 # Before creating a feature branch
-claude "Using the product-owner agent, confirm the acceptance criteria for ticket-123"
+Using the @product-owner agent, confirm the acceptance criteria for ticket-123
 
 # During development
-claude "Using the business-analyst agent, clarify the data model requirements"
+Using the @business-analyst agent, clarify the data model requirements
 
 # Before merging
-claude "Using the qa-engineer agent, review test coverage for this PR"
+Using the @qa-engineer agent, review test coverage for this PR
 
 # Sprint ceremonies
-claude "Using the scrum-master agent, prepare retrospective for sprint 42"
+Using the @scrum-master agent, prepare retrospective for sprint 42
 ```
 
 ### CI/CD Pipeline Integration
@@ -295,37 +295,37 @@ claude "Using the scrum-master agent, prepare retrospective for sprint 42"
 ### Scenario: Unclear Requirements
 ```bash
 # Step 1: Clarify with Business Analyst
-claude "Using the business-analyst agent, analyze and document the requirements for user authentication"
+Using the @business-analyst agent, analyze and document the requirements for user authentication
 
 # Step 2: Create user stories with Product Owner
-claude "Using the product-owner agent, break down these requirements into user stories"
+Using the @product-owner agent, break down these requirements into user stories
 
 # Step 3: Define test scenarios with QA
-claude "Using the qa-engineer agent, create test scenarios for each user story"
+Using the @qa-engineer agent, create test scenarios for each user story
 ```
 
 ### Scenario: Sprint Planning
 ```bash
 # Step 1: Prepare backlog
-claude "Using the product-owner agent, prioritize next sprint's backlog"
+Using the @product-owner agent, prioritize next sprint's backlog
 
 # Step 2: Facilitate planning
-claude "Using the scrum-master agent, run sprint planning session"
+Using the @scrum-master agent, run sprint planning session
 
 # Step 3: Document outcomes
-claude "Using the project-manager agent, update stakeholders on sprint goals"
+Using the @project-manager agent, update stakeholders on sprint goals
 ```
 
 ### Scenario: Quality Issues
 ```bash
 # Step 1: Analyze defects
-claude "Using the qa-engineer agent, analyze defect patterns from last release"
+Using the @qa-engineer agent, analyze defect patterns from last release
 
 # Step 2: Process improvement
-claude "Using the scrum-master agent, facilitate root cause analysis"
+Using the @scrum-master agent, facilitate root cause analysis
 
 # Step 3: Update processes
-claude "Using the business-analyst agent, document new quality processes"
+Using the @business-analyst agent, document new quality processes
 ```
 
 ## Tips for Effective Use

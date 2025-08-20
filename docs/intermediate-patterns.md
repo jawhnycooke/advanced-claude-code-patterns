@@ -196,12 +196,12 @@ EOF
 
 ```bash
 # Run multiple agents on the same code
-claude "Review this with security-reviewer"
-claude "Review this with performance-optimizer"  
-claude "Review this with ux-optimizer"
+Review this with security-reviewer
+Review this with performance-optimizer  
+Review this with ux-optimizer
 
 # Then synthesize
-claude "Summarize all review feedback and prioritize fixes"
+Summarize all review feedback and prioritize fixes
 ```
 
 ## Hook Chaining Patterns
@@ -556,7 +556,7 @@ Combining multiple patterns for feature development:
 export CLAUDE_TASK_TYPE=feature
 
 # 2. Use coordinator agent
-claude "I need to add user profile editing"
+I need to add user profile editing
 
 # 3. Progressive workflow
 /epcc-explore --focus user-management
@@ -576,7 +576,7 @@ Fast, safe production fixes:
 export CLAUDE_ENV=production
 
 # 2. Load production context
-claude "Load production hotfix context"
+Load production hotfix context
 
 # 3. Quick fix with full validation
 /analyze-issue "User login failing"

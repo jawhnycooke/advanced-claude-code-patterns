@@ -140,7 +140,7 @@ EOF
 
 ```bash
 # Test basic functionality
-claude "Using the api-designer agent, design a user management API"
+Using the @api-designer agent, design a user management API
 
 # Test agent behavior consistency
 claude --agent api-designer "Create endpoints for user authentication"

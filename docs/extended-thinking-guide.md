@@ -14,7 +14,7 @@ Extended thinking mode allows Claude Code to allocate additional processing time
 
 ```bash
 # Example usage
-claude "Think about the best database schema for our user management system"
+Think about the best database schema for our user management system
 ```
 
 **Ideal for:**
@@ -29,7 +29,7 @@ claude "Think about the best database schema for our user management system"
 
 ```bash
 # Example usage
-claude "Think hard about optimizing this sorting algorithm for large datasets"
+Think hard about optimizing this sorting algorithm for large datasets
 ```
 
 **Ideal for:**
@@ -44,7 +44,7 @@ claude "Think hard about optimizing this sorting algorithm for large datasets"
 
 ```bash
 # Example usage
-claude "Think harder about potential security vulnerabilities in our authentication flow"
+Think harder about potential security vulnerabilities in our authentication flow
 ```
 
 **Ideal for:**
@@ -59,7 +59,7 @@ claude "Think harder about potential security vulnerabilities in our authenticat
 
 ```bash
 # Example usage
-claude "Ultrathink on migrating our monolith to microservices architecture"
+Ultrathink on migrating our monolith to microservices architecture
 ```
 
 **Ideal for:**
@@ -181,10 +181,10 @@ stages:
 ### 2. Strategic Placement
 ```bash
 # Good: Use thinking for planning
-claude "Think hard about the architecture before we start coding"
+Think hard about the architecture before we start coding
 
 # Bad: Using thinking for simple tasks
-claude "Ultrathink about adding a console.log statement"
+Ultrathink about adding a console.log statement
 ```
 
 ### 3. Combine with Model Selection
@@ -195,35 +195,35 @@ claude "Ultrathink about adding a console.log statement"
 ### 4. Iterative Refinement
 ```bash
 # First pass: Quick analysis
-claude "Analyze this code for issues"
+Analyze this code for issues
 
 # Second pass: Deeper thinking if needed
-claude "Think hard about the performance implications we found"
+Think hard about the performance implications we found
 
 # Final pass: Maximum analysis for critical issues
-claude "Ultrathink on the security vulnerability we discovered"
+Ultrathink on the security vulnerability we discovered
 ```
 
 ## Examples
 
 ### Example 1: Database Schema Design
 ```bash
-claude "Ultrathink on the database schema design for our user management system with RBAC, multi-tenancy, and audit logging requirements"
+Ultrathink on the database schema design for our user management system with RBAC, multi-tenancy, and audit logging requirements
 ```
 
 ### Example 2: Performance Optimization
 ```bash
-claude "Think hard about optimizing this sorting algorithm that processes 10 million records"
+Think hard about optimizing this sorting algorithm that processes 10 million records
 ```
 
 ### Example 3: Security Analysis
 ```bash
-claude "Think harder about potential security vulnerabilities in our JWT implementation"
+Think harder about potential security vulnerabilities in our JWT implementation
 ```
 
 ### Example 4: Architecture Decision
 ```bash
-claude "Think intensely about whether we should use event sourcing for our order management system"
+Think intensely about whether we should use event sourcing for our order management system
 ```
 
 ## Cost Optimization

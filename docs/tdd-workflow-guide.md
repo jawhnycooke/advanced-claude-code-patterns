@@ -20,10 +20,10 @@ The fundamental rule of TDD with Claude Code:
 💬 /tdd/tdd-feature "user authentication with JWT tokens"
 
 # Method 2: Use the test-generator agent directly
-💬 Using the test-generator agent, create failing tests for user authentication
+💬 Using the @test-generator agent, create failing tests for user authentication
 
 # Method 3: Combine with QA engineer agent for comprehensive coverage
-💬 Using the qa-engineer agent, design test scenarios for authentication
+💬 Using the @qa-engineer agent, design test scenarios for authentication
 ```
 
 ### Step 1: Define Requirements Through Tests
@@ -62,7 +62,7 @@ The fundamental rule of TDD with Claude Code:
 💬 /refactor-code "improve authentication design patterns"
 
 # Or use the architect agent for design improvements:
-💬 Using the architect agent, refactor authentication for better patterns while keeping tests green
+💬 Using the @architect agent, refactor authentication for better patterns while keeping tests green
 
 # The quality_gates hook ensures:
 # - All tests remain passing
@@ -290,19 +290,19 @@ Systematically improve test coverage using TDD.
 
 ```
 # Step 1: QA Engineer designs test strategy
-💬 Using the qa-engineer agent, create test plan for payment processing
+💬 Using the @qa-engineer agent, create test plan for payment processing
 
 # Step 2: Test Generator writes tests
-💬 Using the test-generator agent, implement the test plan with failing tests
+💬 Using the @test-generator agent, implement the test plan with failing tests
 
 # Step 3: Architect reviews design
-💬 Using the architect agent, review test design for completeness
+💬 Using the @architect agent, review test design for completeness
 
 # Step 4: Developer implements
 💬 Implement minimal code to pass all tests
 
 # Step 5: Performance Optimizer validates
-💬 Using the performance-optimizer agent, ensure no performance regression
+💬 Using the @performance-optimizer agent, ensure no performance regression
 ```
 
 ### Agent Responsibilities in TDD
@@ -487,11 +487,11 @@ The `quality_gates.json` hook enforces TDD practices:
 
 ```
 # 1. Start with Business Requirements
-💬 Using the business-analyst agent, define requirements for user registration
+💬 Using the @business-analyst agent, define requirements for user registration
 # Output: Clear acceptance criteria
 
 # 2. Create Test Plan
-💬 Using the qa-engineer agent, create comprehensive test plan for registration
+💬 Using the @qa-engineer agent, create comprehensive test plan for registration
 # Output: Test scenarios including edge cases
 
 # 3. Write Failing Tests
@@ -507,15 +507,15 @@ The `quality_gates.json` hook enforces TDD practices:
 # Output: Improved code with all tests passing
 
 # 6. Security Review
-💬 Using the security-reviewer agent, verify registration security
+💬 Using the @security-reviewer agent, verify registration security
 # Output: Security validation with additional security tests
 
 # 7. Performance Check
-💬 Using the performance-optimizer agent, check registration performance
+💬 Using the @performance-optimizer agent, check registration performance
 # Output: Performance metrics with tests
 
 # 8. Documentation
-💬 Using the documentation-agent, document the registration feature
+💬 Using the @documentation-agent, document the registration feature
 # Output: Complete documentation with test examples
 ```
 
@@ -700,7 +700,7 @@ Our hooks and agents automatically track TDD metrics:
 💬 Show TDD compliance metrics from performance_monitor
 
 # Use business analyst to generate TDD report:
-💬 Using the business-analyst agent, analyze our TDD adoption metrics
+💬 Using the @business-analyst agent, analyze our TDD adoption metrics
 ```
 
 ### Key Metrics Tracked

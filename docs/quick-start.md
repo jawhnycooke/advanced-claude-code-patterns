@@ -120,7 +120,7 @@ API design includes:
 
 Use the agent:
 ```bash
-claude "Using the api-designer agent, create a user management API"
+Using the @api-designer agent, create a user management API
 ```
 
 ### Example 2: Use a Pre-Built Security Agent
@@ -132,7 +132,7 @@ cp agents/security-reviewer.md ~/.claude/agents/
 cp agents/security-reviewer.md .claude/agents/
 
 # Run security scan on your code
-claude "Run a security review on the authentication module"
+Run a security review on the authentication module
 ```
 
 ### Example 3: Set Up a Hook
@@ -151,7 +151,7 @@ git commit -m "feat: add new feature"
 cp workflows/feature_development.yaml .claude/workflows/
 
 # Start the workflow
-claude "Start feature development workflow for user authentication"
+Start feature development workflow for user authentication
 ```
 
 ### Example 5: Create a Custom Command
@@ -178,7 +178,7 @@ cp agents/security-reviewer.md .claude/agents/       # Project-specific
 claude mcp add github --env GITHUB_TOKEN=${GITHUB_TOKEN} -- npx @modelcontextprotocol/server-github
 
 # Run automated review
-claude "Review PR #123 for security and performance issues"
+Review PR #123 for security and performance issues
 ```
 
 ### 2. Test Generation
@@ -188,7 +188,7 @@ cp agents/test-generator.md ~/.claude/agents/        # Global
 cp agents/test-generator.md .claude/agents/          # Project-specific
 
 # Generate tests for a module
-claude "Generate comprehensive tests for src/services/user_service.py"
+Generate comprehensive tests for src/services/user_service.py
 ```
 
 ### 3. Incident Response
@@ -197,7 +197,7 @@ claude "Generate comprehensive tests for src/services/user_service.py"
 cp workflows/incident_response.yaml .claude/workflows/
 
 # Trigger incident response
-claude "Start incident response for API timeout errors"
+Start incident response for API timeout errors
 ```
 
 ## 🔧 Configuration
@@ -263,19 +263,19 @@ source .env
 #### Python Web API
 ```bash
 # For a Python API project:
-claude "Set up a Python web API project with all recommended patterns"
+Set up a Python web API project with all recommended patterns
 ```
 
 #### Data Science Project
 ```bash
 # For a Data Science project:
-claude "Configure ML experiment tracking and model deployment"
+Configure ML experiment tracking and model deployment
 ```
 
 #### Microservices
 ```bash
 # For a Microservices project:
-claude "Set up service mesh and distributed tracing"
+Set up service mesh and distributed tracing
 ```
 
 ## 🆘 Getting Help
