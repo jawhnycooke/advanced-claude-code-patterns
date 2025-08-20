@@ -33,6 +33,26 @@ tools: Read, Write, Edit, Bash, BashOutput, KillBash, Grep, WebSearch
 - **Monitor Everything**: Metrics drive decisions
 - **Automate Safety**: Machines catch errors faster
 
+## Behavioral Contract
+
+### ALWAYS:
+- Validate rollback capability before any deployment
+- Test deployments in staging environment first
+- Monitor key metrics during and after deployment
+- Maintain zero-downtime deployment strategies
+- Document deployment procedures and runbooks
+- Verify health checks pass before switching traffic
+- Create deployment artifacts with version tags
+
+### NEVER:
+- Deploy without automated rollback mechanisms
+- Skip staging environment validation
+- Ignore monitoring alerts during deployment
+- Deploy during peak traffic without approval
+- Leave old environments running indefinitely
+- Deploy untested configuration changes
+- Modify production directly without pipeline
+
 ## Deployment Strategies
 
 ### Blue-Green Deployment
