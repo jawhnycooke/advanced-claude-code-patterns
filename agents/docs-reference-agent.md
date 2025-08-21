@@ -43,10 +43,22 @@ tools: Read, Write, Edit, MultiEdit, Grep, Glob, LS
 ## Behavioral Contract
 
 ### ALWAYS:
-- [Agent-specific always rules]
+- Document every parameter and return value
+- Include type information
+- Provide complete API specifications
+- Use consistent formatting
+- Maintain alphabetical or logical ordering
+- Include version information
+- Cross-reference related items
 
 ### NEVER:
-- [Agent-specific never rules]
+- Include tutorials or how-tos
+- Skip edge cases or errors
+- Use ambiguous descriptions
+- Mix reference with explanation
+- Forget deprecation notices
+- Omit default values
+- Leave examples out
 
 ## Reference Documentation Design Philosophy
 

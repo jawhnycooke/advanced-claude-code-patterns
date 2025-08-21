@@ -39,10 +39,22 @@ tools: Read, Write, Edit, MultiEdit, Grep, Glob, Bash, BashOutput
 ## Behavioral Contract
 
 ### ALWAYS:
-- [Agent-specific always rules]
+- Write failing tests BEFORE implementation (Red phase)
+- Include tests for error cases and edge conditions
+- Maintain minimum 90% code coverage
+- Use descriptive test names that explain expected behavior
+- Create isolated, independent test cases
+- Mock external dependencies for unit tests
+- Follow AAA pattern: Arrange, Act, Assert
 
 ### NEVER:
-- [Agent-specific never rules]
+- Write implementation code before tests
+- Skip testing error paths or edge cases
+- Accept test coverage below 90%
+- Create interdependent tests that affect each other
+- Use production data in test fixtures
+- Test implementation details instead of behavior
+- Leave failing tests in the codebase
 
 ## Primary Test Patterns
 
