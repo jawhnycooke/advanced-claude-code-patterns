@@ -76,10 +76,10 @@ team-claude-config/
 │   ├── pre-commit.json
 │   ├── pre-push.json
 │   └── post-deploy.json
-├── workflows/
-│   ├── feature-development.yaml
-│   ├── hotfix-process.yaml
-│   └── release-pipeline.yaml
+├── commands/
+│   ├── feature-development.md
+│   ├── hotfix-process.md
+│   └── release-pipeline.md
 └── team-settings.json
 ```
 
@@ -197,65 +197,53 @@ claude agent import security-reviewer --source company/claude-agents --update
 claude agent check-updates --source company/claude-agents
 ```
 
-## Configure Team Workflows
+## Configure Team Commands
 
-### Define Team-Specific Workflows
+### Define Team-Specific Commands
 
-Create workflow templates for common team processes:
+Create command templates for common team processes:
 
-```yaml
-# Team workflow template - workflows/feature-development.yaml
-name: team_feature_workflow
+```markdown
+# Team command template - commands/feature-development.md
+---
+name: feature-development
+description: Team feature development workflow
+argument-hint: [feature-name] [--type api|frontend|infrastructure|data] [--urgency low|medium|high|critical]
+version: 1.0.0
 owner: platform-team
 maintainers: ["alice", "bob", "charlie"]
-documentation: https://wiki.company.com/workflows/feature-dev
+documentation: https://wiki.company.com/commands/feature-dev
+---
 
-parameters:
-  feature_type:
-    type: string
-    allowed: ["api", "frontend", "infrastructure", "data"]
-    default: "api"
-  
-  urgency:
-    type: string
-    allowed: ["low", "medium", "high", "critical"]
-    default: "medium"
+## Feature Development Command
 
-stages:
-  - name: validation
-    parallel: true
-    tasks:
-      - name: code_review
-        agent: team_code_reviewer
-        timeout: 300
-      
-      - name: security_scan
-        agent: security_reviewer
-        timeout: 180
-      
-      - name: test_generation
-        agent: test_generator
-        when: ${parameters.feature_type} == "api"
+This command orchestrates the team's feature development process.
 
-  - name: deployment_prep
-    depends_on: validation
-    tasks:
-      - name: environment_check
-        switch: ${parameters.feature_type}
-        cases:
-          api:
-            agent: api_deployment_checker
-          frontend:
-            agent: frontend_deployment_checker
-          infrastructure:
-            agent: infra_deployment_checker
+### Usage
+```bash
+/feature-development "user authentication" --type api --urgency high
+```
 
-  - name: approval
-    when: ${parameters.urgency} in ["high", "critical"]
-    type: manual_approval
-    approvers: 
-      - ${team.leads}
-      - ${team.senior_engineers}
+### Workflow Steps
+
+1. **Validation Phase** (runs in parallel):
+   - Using @team-code-reviewer agent for code review
+   - Using @security-reviewer agent for security scan
+   - Using @test-generator agent for test generation (API features only)
+
+2. **Deployment Preparation**:
+   - For API features: Using @api-deployment-checker agent
+   - For Frontend: Using @frontend-deployment-checker agent
+   - For Infrastructure: Using @infra-deployment-checker agent
+
+3. **Approval Process** (high/critical urgency only):
+   - Request approval from team leads
+   - Notify senior engineers
+
+### Arguments
+- `feature-name`: Name of the feature to develop
+- `--type`: Type of feature (api, frontend, infrastructure, data)
+- `--urgency`: Priority level (low, medium, high, critical)
 ```
 
 ### Team Notification Setup
@@ -274,8 +262,8 @@ Configure notifications for team coordination:
       },
       "templates": {
         "agent_failure": "🚨 Agent {{agent_name}} failed in {{project}}: {{error}}",
-        "workflow_complete": "✅ {{workflow_name}} completed for {{project}}",
-        "approval_needed": "⏳ Approval needed for {{workflow_name}} by {{approvers}}"
+        "command_complete": "✅ {{command_name}} completed for {{project}}",
+        "approval_needed": "⏳ Approval needed for {{command_name}} by {{approvers}}"
       }
     },
     "email": {
@@ -404,7 +392,7 @@ def analyze_team_usage(log_file: str) -> dict:
         'failed_runs': 0,
         'total_tokens': 0,
         'unique_agents': set(),
-        'workflows_run': set()
+        'commands_run': set()
     })
     
     with open(log_file) as f:
@@ -426,7 +414,7 @@ def analyze_team_usage(log_file: str) -> dict:
     # Convert sets to counts for JSON serialization
     for user_stats in usage_stats.values():
         user_stats['unique_agents'] = len(user_stats['unique_agents'])
-        user_stats['workflows_run'] = len(user_stats['workflows_run'])
+        user_stats['commands_run'] = len(user_stats['commands_run'])
     
     return dict(usage_stats)
 
@@ -483,7 +471,7 @@ def create_team_dashboard():
         'popular_agents': get_popular_agents(),
         'failure_rate_by_agent': get_failure_rates(),
         'cost_by_team_member': get_cost_breakdown(),
-        'workflow_success_rates': get_workflow_metrics()
+        'command_success_rates': get_command_metrics()
     }
     
     # Generate dashboard HTML
@@ -540,7 +528,7 @@ support_levels:
     resources: ["wiki", "faq", "team_chat"]
     
   level_2:  # Team leads
-    issues: ["workflow_problems", "agent_conflicts", "performance"]
+    issues: ["command_problems", "agent_conflicts", "performance"]
     contacts: ["alice@company.com", "bob@company.com"]
     response_time: "4 hours"
     
@@ -553,7 +541,7 @@ support_levels:
 ## Best Practices Summary
 
 - Establish shared configuration and standards early
-- Version control all team agents and workflows
+- Version control all team agents and commands
 - Implement peer review for shared components
 - Set up automated configuration sync
 - Monitor team usage and performance

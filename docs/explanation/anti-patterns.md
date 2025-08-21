@@ -340,9 +340,9 @@ config/
 │   ├── security/
 │   ├── testing/
 │   └── deployment/
-├── workflows/
-│   ├── feature-development.yaml
-│   └── hotfix-process.yaml
+├── commands/
+│   ├── feature-development.md
+│   └── hotfix-process.md
 └── hooks/
     ├── pre-commit.yaml
     └── post-deploy.yaml

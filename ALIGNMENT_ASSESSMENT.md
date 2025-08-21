@@ -54,7 +54,7 @@ Your documentation package should include two parts:
 |------------|----------|-----------|--------|----------|
 | **Custom Agents** | 6+ | 13 | ✅ EXCEEDS (217%) | `/agents/` |
 | **Hook Patterns** | 5+ | 12 (7 JSON + 5 Python) | ✅ EXCEEDS (240%) | `/hooks/` |
-| **Workflows** | 5+ | 8 | ✅ EXCEEDS (160%) | `/workflows/` |
+| **Commands** | 10+ | 19 | ✅ EXCEEDS (190%) | `/commands/` |
 | **Slash Commands** | 6+ | 13 | ✅ EXCEEDS (217%) | `/commands/` |
 | **MCP Integrations** | 5+ | Documented in guide | ✅ MEETS | `/integrations/` |
 | **CLAUDE.md Templates** | 5+ | 5 | ✅ MEETS (100%) | `/templates/` |

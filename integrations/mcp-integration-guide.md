@@ -158,29 +158,29 @@ Analyze database performance using the postgres MCP server to:
 }
 ```
 
-### Pattern 3: Workflow MCP Orchestration
-```yaml
-# In workflows/database_migration.yaml
-name: database_migration
-stages:
-  - name: backup
-    agent: deployment-agent
-    mcp_server: postgres
-    action: create_backup
-    
-  - name: validate
-    agent: test-generator
-    mcp_server: postgres
-    action: validate_schema
-    
-  - name: migrate
-    agent: deployment-agent
-    mcp_server: postgres
-    action: run_migration
-    
-  - name: notify
-    mcp_server: slack
-    action: send_notification
+### Pattern 3: Command MCP Orchestration
+```markdown
+# In commands/database-migration.md
+---
+name: database-migration
+description: Orchestrate database migration with MCP servers
+argument-hint: [migration-file] [--environment dev|staging|prod]
+---
+
+## Database Migration Command
+
+This command orchestrates database migration using MCP servers.
+
+### Workflow Steps:
+1. **Backup**: Using @deployment-agent with postgres MCP server to create backup
+2. **Validate**: Using @test-generator with postgres MCP server to validate schema
+3. **Migrate**: Using @deployment-agent with postgres MCP server to run migration
+4. **Notify**: Using slack MCP server to send completion notification
+
+### Usage:
+```bash
+/database-migration "v2.0-schema.sql" --environment staging
+```
 ```
 
 ## Configuration Best Practices

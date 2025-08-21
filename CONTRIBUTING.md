@@ -101,17 +101,6 @@ tools: [List, Of, Tools]
 }
 ```
 
-#### For Workflows (`.yaml` files in `/workflows/`)
-```yaml
-name: workflow-name
-description: What this workflow accomplishes
-version: 1.0.0
-stages:
-  - name: stage-name
-    agent: agent-to-use
-    tasks: [list, of, tasks]
-```
-
 #### For Commands (`.md` files in `/commands/`)
 ```markdown
 ---

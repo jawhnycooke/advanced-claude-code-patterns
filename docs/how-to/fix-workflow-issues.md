@@ -1,356 +1,309 @@
-# How to Fix Workflow Issues
+# How to Fix Workflow Command Issues
 
-Task-focused solutions for workflow failures and execution problems.
+Task-focused solutions for workflow command failures and execution problems.
 
 ## Prerequisites
-- Workflow files exist in `.claude/workflows/`
-- Basic understanding of YAML workflow syntax
-- Access to workflow execution logs
+- Workflow commands installed in `.claude/commands/`
+- Basic understanding of slash command syntax
+- Access to Claude Code execution context
 
-## Fix: Workflow Stuck in Pending
+## Fix: Workflow Command Not Executing
 
 **Quick Diagnosis:**
 ```bash
-claude workflow status [workflow-id]
-claude workflow logs [workflow-id]
+# List available commands
+claude /[tab]
+# Check command exists
+ls .claude/commands/
 ```
 
 **Steps:**
-1. **Identify the blocking stage:**
+1. **Verify command is installed:**
    ```bash
-   # Check current status
-   claude workflow status workflow-id --verbose
+   # Check command file exists
+   ls -la .claude/commands/your-command.md
    ```
 
-2. **Add timeout to problematic stage:**
-   ```yaml
-   stages:
-     - name: stuck_stage
-       timeout: 300  # 5 minutes
-       on_timeout: skip  # Options: skip, fail, retry
+2. **Check command metadata:**
+   ```markdown
+   ---
+   name: command-name
+   description: Brief description
+   version: 1.0.0
+   argument-hint: [optional-arguments]
    ```
 
-3. **Force workflow progression:**
+3. **Retry command execution:**
    ```bash
-   # Skip current stage
-   claude workflow continue [workflow-id] --skip-current
+   # Re-run the command
+   /command-name [arguments]
    
-   # Or restart from specific stage
-   claude workflow restart [workflow-id] --from-stage [stage-name]
+   # Or try with different arguments
+   /command-name --force
    ```
 
-## Fix: Dependency Failures Blocking Workflow
+## Fix: Command Dependency Issues
 
-**Problem:** Stage dependencies not met, workflow can't progress.
+**Problem:** Commands have implicit dependencies that aren't met.
 
 **Error Example:**
 ```
-Error: Stage 'deploy' depends on 'test' which failed
+Error: Cannot run /deploy without successful test run
 ```
 
 **Steps:**
-1. **Add conditional dependencies:**
-   ```yaml
-   stages:
-     - name: deploy
-       depends_on: 
-         - stage: test
-           condition: success  # Options: success, complete, skipped
+1. **Check prerequisites:**
+   ```bash
+   # Ensure tests pass first
+   /test
+   # Then run deployment
+   /deploy
    ```
 
-2. **Allow partial success:**
-   ```yaml
-   stages:
-     - name: deploy
-       depends_on: [test]
-       continue_on_dependency_failure: true
-       when: ${test.success_rate} > 0.8
+2. **Use command chains:**
+   ```bash
+   # Run multiple commands in sequence
+   /test && /deploy
    ```
 
-3. **Add fallback path:**
-   ```yaml
-   stages:
-     - name: deploy
-       depends_on: [test]
-       on_dependency_failure:
-         - name: manual_review
-           type: approval
-           message: "Tests failed. Approve manual deployment?"
+3. **Add manual override:**
+   ```bash
+   # Force deployment if you're confident
+   /deploy --skip-checks
    ```
 
-## Fix: Lost Workflow State
+## Fix: Lost Command Context
 
-**Problem:** Workflow restarts from beginning, previous progress lost.
+**Problem:** Claude loses context between commands, previous work lost.
 
 **Steps:**
-1. **Enable state persistence:**
-   ```yaml
-   # Add to workflow config
-   state:
-     backend: redis  # Options: redis, file, database
-     ttl: 86400      # 24 hours
-     checkpoint_frequency: after_each_task
-   ```
-
-2. **Recover from checkpoint:**
+1. **Use session persistence:**
    ```bash
-   claude workflow recover [workflow-id] --from-checkpoint
+   # Save your conversation
+   claude --resume
    ```
 
-3. **Manual state recovery:**
-   ```python
-   # Recover workflow state
-   import json
-   
-   state_file = ".claude/workflow-state.json"
-   with open(state_file, 'r') as f:
-       state = json.load(f)
-   
-   # Update state
-   state["current_stage"] = "deployment"
-   state["completed_tasks"] = ["test", "build"]
-   
-   with open(state_file, 'w') as f:
-       json.dump(state, f)
+2. **Document progress in CLAUDE.md:**
+   ```bash
+   # Update project memory
+   /memory
    ```
 
-## Fix: Circular Dependencies
+3. **Use explicit context:**
+   ```bash
+   # Reference previous work explicitly
+   Continue from where we left off with the authentication implementation
+   ```
 
-**Problem:** Workflow stages have circular dependencies.
+## Fix: Command Order Issues
+
+**Problem:** Commands executed in wrong order causing failures.
 
 **Error Example:**
 ```
-Error: Workflow cycle detected: stage_a -> stage_b -> stage_a
+Error: Cannot deploy before running tests
 ```
 
 **Steps:**
-1. **Map dependency graph:**
+1. **Follow recommended order:**
    ```bash
-   # Visualize dependencies
-   claude workflow graph [workflow-id]
+   # Example: EPCC workflow
+   /epcc/epcc-explore "feature"
+   /epcc/epcc-plan
+   /epcc/epcc-code
+   /epcc/epcc-commit
    ```
 
-2. **Break circular dependencies:**
-   ```yaml
-   # Before (circular)
-   stages:
-     - name: stage_a
-       depends_on: [stage_b]
-     - name: stage_b
-       depends_on: [stage_a]
+2. **Use workflow commands:**
+   ```bash
+   # TDD workflow for features
+   /tdd/tdd-feature "user authentication"
    
-   # After (fixed)
-   stages:
-     - name: stage_setup
-       # No dependencies
-     - name: stage_a
-       depends_on: [stage_setup]
-     - name: stage_b
-       depends_on: [stage_setup]
+   # TDD workflow for bugs
+   /tdd/tdd-bugfix "login issue"
    ```
 
-3. **Use conditional execution instead:**
-   ```yaml
-   stages:
-     - name: conditional_stage
-       when: ${previous_stage.status} == 'success'
-       # Instead of depends_on
+3. **Document command sequence:**
+   ```markdown
+   # In .claude/CLAUDE.md
+   ## Command Workflow
+   1. First run /analyze
+   2. Then run /plan
+   3. Finally run /implement
    ```
 
-## Fix: Workflow Resource Exhaustion
+## Fix: Command Resource Issues
 
-**Problem:** Workflow consuming too much memory/CPU.
+**Problem:** Commands consuming too much context or memory.
 
 **Steps:**
-1. **Set resource limits:**
-   ```yaml
-   resources:
-     limits:
-       memory: 2Gi
-       cpu: 2
-       timeout: 3600  # 1 hour
+1. **Use compact mode:**
+   ```bash
+   # Free up context space
+   /compact
    ```
 
-2. **Limit concurrent operations:**
-   ```yaml
-   parallel:
-     max_workers: 4        # Reduce from default
-     chunk_size: 10        # Process in smaller batches
-     memory_limit: 1Gi     # Per worker
+2. **Process in smaller batches:**
+   ```bash
+   # Instead of analyzing entire codebase
+   /analyze src/module1
+   /analyze src/module2
    ```
 
-3. **Optimize stage execution:**
-   ```yaml
-   stages:
-     - name: optimized_stage
-       cache: true         # Cache results
-       incremental: true   # Only process changes
-       batch_size: 50      # Process in batches
+3. **Use targeted commands:**
+   ```bash
+   # Be specific about scope
+   /code-review --file src/auth.py
+   # Instead of
+   /code-review --all
    ```
 
-## Fix: Workflow Validation Errors
+## Fix: Command Syntax Errors
 
-**Problem:** Workflow YAML has syntax or logic errors.
+**Problem:** Command has incorrect syntax or arguments.
 
 **Steps:**
-1. **Validate YAML syntax:**
+1. **Check command syntax:**
    ```bash
-   # Check syntax
-   yamllint .claude/workflows/my-workflow.yaml
+   # View available commands
+   /[tab]
    
-   # Validate workflow logic
-   claude workflow validate my-workflow.yaml
+   # Check command help
+   /command-name --help
    ```
 
-2. **Common YAML fixes:**
-   ```yaml
-   # ✅ Correct indentation
-   stages:
-     - name: test
-       commands:
-         - pytest
+2. **Common syntax fixes:**
+   ```bash
+   # ✅ Correct argument format
+   /create-docs "authentication" --tutorial
    
-   # ❌ Wrong indentation
-   stages:
-   - name: test
-     commands:
-     - pytest
+   # ❌ Wrong format
+   /create-docs authentication tutorial
    ```
 
-3. **Fix logic errors:**
-   ```yaml
-   # ✅ Valid stage reference
-   stages:
-     - name: test
-     - name: deploy
-       depends_on: [test]  # Reference existing stage
+3. **Fix argument errors:**
+   ```bash
+   # ✅ Valid arguments
+   /analyze-performance --profile --verbose
    
-   # ❌ Invalid reference
-   stages:
-     - name: test
-     - name: deploy
-       depends_on: [build]  # 'build' stage doesn't exist
+   # ❌ Invalid arguments
+   /analyze-performance --invalid-flag
    ```
 
 ## Fix: Environment Variable Issues
 
-**Problem:** Workflow can't access required environment variables.
+**Problem:** Commands can't access required environment variables.
 
 **Steps:**
-1. **Check variable availability:**
+1. **Set environment variables:**
    ```bash
-   # Test in workflow context
-   claude workflow env [workflow-id]
+   # Export before running Claude
+   export GITHUB_TOKEN="your_token"
+   claude
    ```
 
-2. **Set variables in workflow:**
-   ```yaml
-   environment:
-     GITHUB_TOKEN: ${env:GITHUB_TOKEN}
-     DATABASE_URL: ${secret:db_url}
-     NODE_ENV: production
+2. **Use .env file:**
+   ```bash
+   # Create .env file
+   echo "GITHUB_TOKEN=your_token" > .env
+   # Load it
+   source .env
    ```
 
-3. **Use fallback values:**
-   ```yaml
-   environment:
-     API_URL: ${env:API_URL:https://api.default.com}
-     TIMEOUT: ${env:TIMEOUT:30}
+3. **Pass to MCP servers:**
+   ```bash
+   # Configure MCP with env vars
+   claude mcp add github --env GITHUB_TOKEN=${GITHUB_TOKEN}
    ```
 
-## Fix: Workflow Performance Issues
+## Fix: Command Performance Issues
 
-**Problem:** Workflow running slowly or timing out.
+**Problem:** Commands running slowly or timing out.
 
 **Steps:**
-1. **Profile workflow execution:**
+1. **Use targeted scope:**
    ```bash
-   claude workflow profile [workflow-id]
+   # Analyze specific files
+   /analyze-performance src/bottleneck.py
+   # Instead of entire codebase
    ```
 
-2. **Optimize stage ordering:**
-   ```yaml
-   # Run independent stages in parallel
-   stages:
-     - name: lint
-       parallel: true
-     - name: type_check
-       parallel: true
-     - name: test
-       depends_on: [lint, type_check]
+2. **Break into smaller tasks:**
+   ```bash
+   # Process modules separately
+   /refactor-code src/auth --module
+   /refactor-code src/api --module
    ```
 
-3. **Use caching:**
-   ```yaml
-   stages:
-     - name: build
-       cache:
-         key: ${checksum:package.json}
-         paths: [node_modules/]
+3. **Use appropriate agents:**
+   ```bash
+   # Use lighter agents for simple tasks
+   Using @test-generator for unit tests
+   # Instead of heavyweight agents
    ```
 
 ## Emergency Recovery
 
-**Complete workflow reset:**
+**Complete session reset:**
 ```bash
-# Stop all workflows
-claude workflow stop --all
+# Clear conversation and start fresh
+/clear
 
-# Clear workflow state
-claude workflow clear-state
+# Compact to free memory
+/compact
 
-# Restart critical workflows
-claude workflow start critical-workflow
+# Resume from saved state
+claude --resume
 ```
 
 **Backup and restore:**
 ```bash
-# Backup workflow definitions
-cp -r .claude/workflows/ .claude/workflows.backup/
+# Backup command definitions
+cp -r .claude/commands/ .claude/commands.backup/
 
 # Restore from backup
-cp .claude/workflows.backup/working-workflow.yaml .claude/workflows/
+cp .claude/commands.backup/working-command.md .claude/commands/
 ```
 
 ## Troubleshooting Commands
 
-**Status and logs:**
+**Check configuration:**
 ```bash
-# Check all workflows
-claude workflow list
+# View current config
+/config
 
-# Detailed status
-claude workflow status [workflow-id] --verbose
+# Check available commands
+/help
 
-# View logs
-claude workflow logs [workflow-id] --tail -f
+# View command list
+/[tab]
 
-# Debug mode
-claude workflow run [workflow-id] --debug
+# Check MCP servers
+claude mcp list
 ```
 
-**Validation and testing:**
+**Debug and testing:**
 ```bash
-# Validate workflow file
-claude workflow validate workflow-file.yaml
+# Run health check
+/doctor
 
-# Dry run
-claude workflow run [workflow-id] --dry-run
+# View token usage
+/cost
 
-# Test single stage
-claude workflow test-stage [workflow-id] [stage-name]
+# Test specific command
+/command-name --dry-run
 ```
 
 ## When to Get Help
 
 Contact support if:
-- Workflow validation passes but execution fails
-- State corruption occurs repeatedly
+- Commands exist but won't execute
+- Context loss occurs repeatedly
 - Performance issues persist after optimization
-- Dependencies resolve correctly but workflow still fails
+- Environment variables set but not accessible
 
 Include in your report:
-- Workflow YAML file
-- Execution logs
-- Output of `claude workflow status --verbose`
-- Environment details where workflow runs
+- Command file (.claude/commands/)
+- Error messages
+- Output of `/doctor`
+- Claude Code version (`claude --version`)

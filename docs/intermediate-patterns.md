@@ -587,28 +587,39 @@ Load production hotfix context
 
 ### Scenario 3: Code Modernization
 
-Systematic refactoring:
+Systematic refactoring using slash commands:
 
-```python
-# .claude/workflows/modernize.yaml
+```bash
+# Execute modernization workflow
+/modernize-codebase
+
+# This command internally orchestrates:
+# 1. Using @code-archaeologist agent to map legacy patterns
+# 2. Running /identify-debt command
+# 3. Using @architect agent to design modernization plan
+# 4. Running /refactor-code --incremental --safe
+# 5. Triggering quality_gates hook
+# 6. Using @test-generator agent to ensure coverage maintained
+```
+
+Or define as a custom command:
+
+```markdown
+# .claude/commands/modernize-codebase.md
+---
 name: modernize-codebase
-steps:
-  - agent: code-archaeologist
-    action: "Map legacy patterns"
-  
-  - command: /identify-debt
-    
-  - agent: architect
-    action: "Design modernization plan"
-    
-  - command: /refactor-code
-    params: "--incremental --safe"
-    
-  - hook: quality_gates
-    level: strict
-    
-  - agent: test-generator
-    action: "Ensure coverage maintained"
+description: Systematically modernize legacy codebase
+argument-hint: [module-name] [--incremental] [--safe]
+---
+
+## Workflow Steps
+
+1. Using @code-archaeologist agent to map legacy patterns
+2. Identify technical debt with /identify-debt
+3. Using @architect agent to design modernization plan
+4. Refactor code with /refactor-code --incremental --safe
+5. Validate with quality gates
+6. Using @test-generator agent to ensure coverage maintained
 ```
 
 ## Practice Exercises

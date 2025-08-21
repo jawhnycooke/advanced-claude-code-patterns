@@ -132,7 +132,7 @@ cp agents/security-reviewer.md ~/.claude/agents/
 cp agents/security-reviewer.md .claude/agents/
 
 # Run security scan on your code
-Run a security review on the authentication module
+Run a security review on the authentication module using the @security-reviewer agent
 ```
 
 ### Example 3: Set Up a Hook
@@ -145,13 +145,13 @@ git commit -m "feat: add new feature"
 # Hook runs tests, linting, and security checks
 ```
 
-### Example 4: Execute a Workflow
+### Example 4: Execute a Development Workflow
 ```bash
-# Copy feature development workflow
-cp workflows/feature_development.yaml .claude/workflows/
-
-# Start the workflow
-Start feature development workflow for user authentication
+# Use the EPCC workflow command for systematic development
+/epcc/epcc-explore "user authentication"  # Analyze codebase
+/epcc/epcc-plan                           # Create implementation plan
+/epcc/epcc-code                           # Execute implementation
+/epcc/epcc-commit                         # Commit with message
 ```
 
 ### Example 5: Create a Custom Command
@@ -193,11 +193,11 @@ Generate comprehensive tests for src/services/user_service.py
 
 ### 3. Incident Response
 ```bash
-# Set up incident response workflow
-cp workflows/incident_response.yaml .claude/workflows/
-
-# Trigger incident response
-Start incident response for API timeout errors
+# Copy the incident response command (if available)
+# OR use agents directly for incident response
+Using the @code-archaeologist agent, analyze the API timeout issue
+Using the @performance-profiler agent, identify bottlenecks
+Using the @optimization-engineer agent, implement fixes
 ```
 
 ## 🔧 Configuration
@@ -213,9 +213,9 @@ Start incident response for API timeout errors
     "enabled": true,
     "autoFix": true
   },
-  "workflows": {
-    "requireApproval": true,
-    "notificationChannel": "slack"
+  "commands": {
+    "projectPrefix": "project",
+    "globalPrefix": "global"
   }
 }
 ```
@@ -248,10 +248,10 @@ source .env
    - Post-deployment hooks
    - Error recovery
 
-3. **[Workflows Guide](./workflows-guide.md)**: Complex orchestration
-   - Multi-stage workflows
-   - Conditional logic
-   - Parallel execution
+3. **[Commands Guide](./commands-guide.md)**: Workflow automation
+   - Slash commands with arguments
+   - Multi-stage workflows via commands
+   - EPCC and TDD workflows
 
 4. **[MCP Integration](./mcp-guide.md)**: External tools
    - Database access
@@ -338,7 +338,7 @@ You know you're set up correctly when:
 For comprehensive documentation, see:
 - [Complete Agents Guide](./agents-guide.md)
 - [Advanced Hooks Patterns](./hooks-guide.md)
-- [Workflow Orchestration](./workflows-guide.md)
+- [Workflow Commands](./commands-guide.md)
 - [Best Practices](./best-practices.md)
 
 ---
