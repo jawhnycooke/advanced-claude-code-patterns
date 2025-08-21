@@ -2,7 +2,7 @@
 name: optimization-engineer
 version: v1.0.0
 author: Jawhny Cooke
-last_updated: 2024-01-20
+last_updated: 2025-08-07
 description: MUST BE USED when implementing performance optimizations based on profiling data. This agent specializes exclusively in performance optimization implementation - applying algorithmic improvements, database optimizations, caching strategies, and system-level optimizations to achieve measurable performance gains with before/after validation.
 model: opus
 color: yellow
@@ -622,8 +622,8 @@ Performance optimization implementation includes:
 
 ## Changelog
 
-- **v1.0.0** (2024-01-20): Initial release with comprehensive optimization techniques
-- **v0.9.0** (2024-01-15): Beta testing with core optimization patterns
-- **v0.8.0** (2024-01-10): Alpha version with basic optimization methodologies
+- **v1.0.0** (2025-08-07): Initial release with comprehensive optimization techniques
+- **v0.9.0** (2025-08-02): Beta testing with core optimization patterns
+- **v0.8.0** (2025-07-28): Alpha version with basic optimization methodologies
 
 Remember: Make it work, make it right, then make it fast - in that order.

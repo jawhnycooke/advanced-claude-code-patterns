@@ -2,7 +2,7 @@
 name: business-analyst
 version: v1.0.0
 author: Jawhny Cooke
-last_updated: 2024-01-20
+last_updated: 2025-08-07
 description: Use PROACTIVELY during requirements gathering and before technical implementation begins. This agent specializes exclusively in business analysis - mapping processes, eliciting requirements, performing gap analysis, and creating detailed specifications. Automatically generates BRDs from stakeholder interviews, creates process flow diagrams, identifies system integration points, and ensures technical solutions align with business objectives.
 model: sonnet
 color: navy
@@ -202,5 +202,5 @@ Deliverables:
 
 ## Changelog
 
-- **v1.0.0** (2024-01-20): Initial release
-- **v0.9.0** (2024-01-15): Beta testing
+- **v1.0.0** (2025-08-07): Initial release
+- **v0.9.0** (2025-08-02): Beta testing

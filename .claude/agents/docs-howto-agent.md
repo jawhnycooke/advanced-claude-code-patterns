@@ -2,7 +2,7 @@
 name: docs-howto-agent
 version: v1.0.0
 author: Jawhny Cooke
-last_updated: 2024-01-20
+last_updated: 2025-08-07
 description: MUST BE USED when creating task-oriented documentation for competent users solving specific problems. This agent specializes exclusively in creating goal-focused how-to guides that provide practical directions for accomplishing real-world tasks. Creates reliable, efficient solutions with troubleshooting for users who know the basics.
 model: sonnet
 color: blue
@@ -330,7 +330,7 @@ For [high-scale/performance-critical] scenarios:
 
 ## Changelog
 
-- **v1.0.0** (2024-01-20): Initial release
-- **v0.9.0** (2024-01-15): Beta testing
+- **v1.0.0** (2025-08-07): Initial release
+- **v0.9.0** (2025-08-02): Beta testing
 
 Remember: Your job is to be the experienced practitioner who gets competent users unstuck and back to productive work as quickly as possible.

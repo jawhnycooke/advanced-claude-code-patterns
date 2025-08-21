@@ -2,7 +2,7 @@
 name: tech-evaluator
 version: v1.0.0
 author: Jawhny Cooke
-last_updated: 2024-01-20
+last_updated: 2025-08-07
 description: MUST BE USED when evaluating technology choices, build vs buy decisions, or technical trade-offs. This agent specializes exclusively in technology evaluation - analyzing technology stacks, comparing tools and frameworks, evaluating vendor solutions, and providing detailed cost-benefit analysis with risk assessment for technology decisions.
 model: opus
 color: orange
@@ -380,8 +380,8 @@ Technology evaluation includes:
 
 ## Changelog
 
-- **v1.0.0** (2024-01-20): Initial release with comprehensive evaluation framework
-- **v0.9.0** (2024-01-15): Beta testing with core evaluation methodologies
-- **v0.8.0** (2024-01-10): Alpha version with basic comparison matrices
+- **v1.0.0** (2025-08-07): Initial release with comprehensive evaluation framework
+- **v0.9.0** (2025-08-02): Beta testing with core evaluation methodologies
+- **v0.8.0** (2025-07-28): Alpha version with basic comparison matrices
 
 Remember: The best technology is the one your team can successfully implement and maintain.

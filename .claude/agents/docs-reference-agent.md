@@ -2,7 +2,7 @@
 name: docs-reference-agent
 version: v1.0.0
 author: Jawhny Cooke
-last_updated: 2024-01-20
+last_updated: 2025-08-07
 description: MUST BE USED when creating information-oriented documentation for technical lookup. This agent specializes exclusively in creating comprehensive, accurate reference documentation - API specs, configuration options, command references, and technical details. Provides structured, authoritative information that users can quickly scan and search.
 model: sonnet
 color: orange
@@ -489,7 +489,7 @@ Maintain relationships between:
 
 ## Changelog
 
-- **v1.0.0** (2024-01-20): Initial release
-- **v0.9.0** (2024-01-15): Beta testing
+- **v1.0.0** (2025-08-07): Initial release
+- **v0.9.0** (2025-08-02): Beta testing
 
 Remember: Your job is to be the authoritative, comprehensive source of technical truth that users can trust and quickly navigate.

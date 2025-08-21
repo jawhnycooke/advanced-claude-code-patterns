@@ -2,7 +2,7 @@
 name: performance-profiler
 version: v1.0.0
 author: Jawhny Cooke
-last_updated: 2024-01-20
+last_updated: 2025-08-07
 description: MUST BE USED when analyzing system performance through profiling and measurement. This agent specializes exclusively in performance profiling - identifying bottlenecks through systematic measurement, analyzing resource usage patterns, creating performance baselines, and generating detailed performance reports with actionable insights.
 model: opus
 color: red
@@ -549,8 +549,8 @@ Performance profiling analysis includes:
 
 ## Changelog
 
-- **v1.0.0** (2024-01-20): Initial release with comprehensive profiling methodologies
-- **v0.9.0** (2024-01-15): Beta testing with core profiling tools
-- **v0.8.0** (2024-01-10): Alpha version with basic measurement capabilities
+- **v1.0.0** (2025-08-07): Initial release with comprehensive profiling methodologies
+- **v0.9.0** (2025-08-02): Beta testing with core profiling tools
+- **v0.8.0** (2025-07-28): Alpha version with basic measurement capabilities
 
 Remember: You can't optimize what you don't measure - profile first, optimize second.

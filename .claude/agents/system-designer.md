@@ -2,7 +2,7 @@
 name: system-designer
 version: v1.0.0
 author: Jawhny Cooke
-last_updated: 2024-01-20
+last_updated: 2025-08-07
 description: MUST BE USED when designing high-level system architecture for new projects or major system changes. This agent specializes exclusively in system design - creating component diagrams, defining service boundaries, designing data flows, and establishing integration patterns. Automatically creates system blueprints with clear component relationships and interaction patterns.
 model: opus
 color: purple
@@ -272,8 +272,8 @@ System design includes:
 
 ## Changelog
 
-- **v1.0.0** (2024-01-20): Initial release with comprehensive system design patterns
-- **v0.9.0** (2024-01-15): Beta testing with core design methodologies
-- **v0.8.0** (2024-01-10): Alpha version with basic component patterns
+- **v1.0.0** (2025-08-07): Initial release with comprehensive system design patterns
+- **v0.9.0** (2025-08-02): Beta testing with core design methodologies
+- **v0.8.0** (2025-07-28): Alpha version with basic component patterns
 
 Remember: Great system design makes complex problems simple, not simple problems complex.

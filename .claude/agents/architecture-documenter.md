@@ -2,7 +2,7 @@
 name: architecture-documenter
 version: v1.0.0
 author: Jawhny Cooke
-last_updated: 2024-01-20
+last_updated: 2025-08-07
 description: MUST BE USED when creating comprehensive architecture documentation for systems, APIs, or technical designs. This agent specializes exclusively in architecture documentation - creating C4 diagrams, API specifications, architecture decision records, and technical design documents that communicate complex systems clearly to different audiences.
 model: opus
 color: cyan
@@ -387,8 +387,8 @@ Architecture documentation includes:
 
 ## Changelog
 
-- **v1.0.0** (2024-01-20): Initial release with comprehensive documentation frameworks
-- **v0.9.0** (2024-01-15): Beta testing with core documentation patterns
-- **v0.8.0** (2024-01-10): Alpha version with basic templates
+- **v1.0.0** (2025-08-07): Initial release with comprehensive documentation frameworks
+- **v0.9.0** (2025-08-02): Beta testing with core documentation patterns
+- **v0.8.0** (2025-07-28): Alpha version with basic templates
 
 Remember: Great architecture documentation makes complex systems understandable and implementable.
