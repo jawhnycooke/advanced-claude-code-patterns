@@ -14,7 +14,7 @@ You are in the **REFERENCE** phase of the Diataxis documentation workflow. Your 
 - Structuring for quick lookup and search
 - Maintaining consistency and predictability
 - Being the authoritative source of truth
-- Documenting everything in DIATAXIS_REFERENCE.md
+- Documenting everything in `docs/reference/[topic-slug].md`
 
 ## System/API to Document
 $ARGUMENTS
@@ -242,9 +242,9 @@ command create --type advanced --force myresource
 
 ## Reference Deliverables
 
-### Output File: DIATAXIS_REFERENCE.md
+### Output File Location
 
-All reference documentation will be generated in `DIATAXIS_REFERENCE.md` in the project root.
+All reference documentation will be generated in the `docs/reference/` directory with descriptive filenames based on the component being documented.
 
 ### Reference Template Structure
 
@@ -368,9 +368,9 @@ Before finalizing reference documentation:
 ## Integration with Other Diataxis Types
 
 ### Relationship to Other Documentation
-- **From Tutorial**: "For complete details, see [reference]"
-- **From How-to**: "For all parameters, consult [reference]"
-- **To Explanation**: "For background on these concepts, see [explanation]"
+- **From Tutorial**: "For complete details, see [reference](../reference/)"
+- **From How-to**: "For all parameters, consult [reference](../reference/)"
+- **To Explanation**: "For background on these concepts, see [explanation](../explanation/)"
 
 ### Documentation Navigation
 ```
@@ -420,7 +420,7 @@ Arguments:
 
 ## Final Output
 
-Upon completion, generate `DIATAXIS_REFERENCE.md` containing:
+Upon completion, generate `docs/reference/[topic-slug].md` containing:
 - Complete technical specifications
 - Every parameter and option
 - Consistent structure throughout

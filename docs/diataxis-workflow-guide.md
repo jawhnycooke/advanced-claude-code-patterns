@@ -73,7 +73,7 @@ Creates learning-oriented documentation for beginners.
 - Creating getting-started guides
 - Building confidence through practice
 
-**Output:** `DIATAXIS_TUTORIAL.md`
+**Output:** `docs/tutorials/[topic-name].md`
 
 #### `/diataxis-howto`
 Creates task-oriented guides for solving specific problems.
@@ -84,7 +84,7 @@ Creates task-oriented guides for solving specific problems.
 - Providing step-by-step solutions
 - Creating deployment guides
 
-**Output:** `DIATAXIS_HOWTO.md`
+**Output:** `docs/how-to/[task-name].md`
 
 #### `/diataxis-reference`
 Creates comprehensive technical specifications.
@@ -95,7 +95,7 @@ Creates comprehensive technical specifications.
 - Creating command references
 - Providing parameter details
 
-**Output:** `DIATAXIS_REFERENCE.md`
+**Output:** `docs/reference/[component-name].md`
 
 #### `/diataxis-explanation`
 Creates conceptual documentation for understanding.
@@ -106,7 +106,7 @@ Creates conceptual documentation for understanding.
 - Providing theoretical background
 - Comparing alternatives
 
-**Output:** `DIATAXIS_EXPLANATION.md`
+**Output:** `docs/explanation/[concept-name].md`
 
 ## Documentation Agents
 
@@ -384,10 +384,10 @@ Tutorial → How-to → Reference → Explanation
 
 All documentation is generated as Markdown files:
 
-- `DIATAXIS_TUTORIAL.md` - Learning content
-- `DIATAXIS_HOWTO.md` - Task guides
-- `DIATAXIS_REFERENCE.md` - Technical specs
-- `DIATAXIS_EXPLANATION.md` - Conceptual content
+- `docs/tutorials/[topic].md` - Learning content
+- `docs/how-to/[task].md` - Task guides
+- `docs/reference/[component].md` - Technical specs
+- `docs/explanation/[concept].md` - Conceptual content
 
 ## Summary
 

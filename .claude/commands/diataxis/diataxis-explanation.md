@@ -14,7 +14,7 @@ You are in the **EXPLANATION** phase of the Diataxis documentation workflow. You
 - Explaining the "why" behind decisions
 - Discussing alternatives and trade-offs
 - Offering broader perspectives and connections
-- Documenting everything in DIATAXIS_EXPLANATION.md
+- Documenting everything in `docs/explanation/[topic-slug].md`
 
 ## Concept to Explain
 $ARGUMENTS
@@ -184,9 +184,9 @@ Component A → Process → Component B
 
 ## Explanation Deliverables
 
-### Output File: DIATAXIS_EXPLANATION.md
+### Output File Location
 
-All explanation documentation will be generated in `DIATAXIS_EXPLANATION.md` in the project root.
+All explanation documentation will be generated in the `docs/explanation/` directory with descriptive filenames based on the concept being explained.
 
 ### Explanation Template Structure
 
@@ -327,9 +327,9 @@ Before finalizing explanation documentation:
 ## Integration with Other Diataxis Types
 
 ### Relationship to Other Documentation
-- **From Tutorial**: "To understand why we do this, see [explanation]"
-- **From How-to**: "For background on this approach, read [explanation]"
-- **From Reference**: "For conceptual understanding, see [explanation]"
+- **From Tutorial**: "To understand why we do this, see [explanation](../explanation/)"
+- **From How-to**: "For background on this approach, read [explanation](../explanation/)"
+- **From Reference**: "For conceptual understanding, see [explanation](../explanation/)"
 
 ### Documentation Journey
 ```
@@ -409,7 +409,7 @@ Doing → Achieving → Looking up → Understanding deeply
 
 ## Final Output
 
-Upon completion, generate `DIATAXIS_EXPLANATION.md` containing:
+Upon completion, generate `docs/explanation/[topic-slug].md` containing:
 - Rich contextual background
 - Clear conceptual explanations
 - Design decisions and rationale

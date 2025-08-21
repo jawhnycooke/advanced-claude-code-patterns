@@ -367,7 +367,11 @@ The Diataxis workflow provides systematic documentation creation following the f
 - Automatic documentation type detection
 - Parallel agent deployment for comprehensive coverage
 - Cross-referencing between documentation types
-- Output files: `DIATAXIS_[TYPE].md`
+- Output files organized in `docs/` subdirectories:
+  - `docs/tutorials/[topic].md` for learning content
+  - `docs/how-to/[task].md` for task guides
+  - `docs/reference/[component].md` for technical specs
+  - `docs/explanation/[concept].md` for conceptual content
 
 ### EPCC Development Workflow
 

@@ -90,10 +90,11 @@ cp commands/create-docs.md ~/.claude/commands/
 cp agents/docs-*.md ~/.claude/agents/
 
 # Generate documentation automatically routed to the right type
-claude "/create-docs 'authentication system' --tutorial"  # Learning guide
-claude "/create-docs 'deploy to AWS' --howto"             # Task guide
-claude "/create-docs 'API endpoints' --reference"         # Technical reference
-claude "/create-docs 'microservices' --explanation"       # Concept explanation
+# Documentation is created in organized subdirectories:
+claude "/create-docs 'authentication system' --tutorial"  # Creates: docs/tutorials/authentication-system.md
+claude "/create-docs 'deploy to AWS' --howto"             # Creates: docs/how-to/deploy-to-aws.md
+claude "/create-docs 'API endpoints' --reference"         # Creates: docs/reference/api-endpoints.md
+claude "/create-docs 'microservices' --explanation"       # Creates: docs/explanation/microservices.md
 ```
 
 ### Example 4: Set Up Quality Gates

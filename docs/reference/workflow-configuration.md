@@ -370,10 +370,10 @@ Claude Code supports multiple workflow types that can be configured at global an
 - `/diataxis/diataxis-explanation` - Conceptual docs
 
 ### Diataxis Output Files
-- `DIATAXIS_TUTORIAL.md` - Step-by-step learning guide
-- `DIATAXIS_HOWTO.md` - Problem-solving guide
-- `DIATAXIS_REFERENCE.md` - Technical specifications
-- `DIATAXIS_EXPLANATION.md` - Conceptual understanding
+- `docs/tutorials/[topic].md` - Step-by-step learning guide
+- `docs/how-to/[task].md` - Problem-solving guide
+- `docs/reference/[component].md` - Technical specifications
+- `docs/explanation/[concept].md` - Conceptual understanding
 
 ## Quality Gates Configuration
 

@@ -8,11 +8,11 @@ The Diataxis workflow provides 5 specialized commands for creating comprehensive
 
 | Command | Purpose | Model | Output File |
 |---------|---------|-------|-------------|
-| `/diataxis-docs` | Master orchestrator | N/A | Varies |
-| `/diataxis-tutorial` | Learning documentation | Uses agents | `DIATAXIS_TUTORIAL.md` |
-| `/diataxis-howto` | Task documentation | Uses agents | `DIATAXIS_HOWTO.md` |
-| `/diataxis-reference` | Technical specs | Uses agents | `DIATAXIS_REFERENCE.md` |
-| `/diataxis-explanation` | Conceptual docs | Uses agents | `DIATAXIS_EXPLANATION.md` |
+| `/diataxis-docs` | Master orchestrator | N/A | Varies by type |
+| `/diataxis-tutorial` | Learning documentation | Uses agents | `docs/tutorials/[topic].md` |
+| `/diataxis-howto` | Task documentation | Uses agents | `docs/how-to/[task].md` |
+| `/diataxis-reference` | Technical specs | Uses agents | `docs/reference/[component].md` |
+| `/diataxis-explanation` | Conceptual docs | Uses agents | `docs/explanation/[concept].md` |
 
 ## Command Specifications
 

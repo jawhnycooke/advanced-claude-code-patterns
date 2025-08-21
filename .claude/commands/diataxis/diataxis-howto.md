@@ -14,7 +14,7 @@ You are in the **HOW-TO** phase of the Diataxis documentation workflow. Your mis
 - Assuming user competence with basics
 - Getting users unstuck quickly
 - Offering alternative approaches when relevant
-- Documenting everything in DIATAXIS_HOWTO.md
+- Documenting everything in `docs/how-to/[topic-slug].md`
 
 ## Problem to Solve
 $ARGUMENTS
@@ -191,9 +191,9 @@ long-term solution
 
 ## How-To Deliverables
 
-### Output File: DIATAXIS_HOWTO.md
+### Output File Location
 
-All how-to documentation will be generated in `DIATAXIS_HOWTO.md` in the project root.
+All how-to documentation will be generated in the `docs/how-to/` directory with descriptive filenames based on the problem being solved.
 
 ### How-To Template Structure
 
@@ -327,9 +327,9 @@ Before finalizing the how-to guide:
 ## Integration with Other Diataxis Types
 
 ### References from Other Documentation
-- **From Tutorials**: "Now that you've learned basics, see this guide to solve specific problems"
-- **To Reference**: "For complete parameter details, see [reference documentation]"
-- **To Explanation**: "To understand the underlying concepts, read [explanation]"
+- **From Tutorials**: "Now that you've learned basics, see [how-to guides](../how-to/) to solve specific problems"
+- **To Reference**: "For complete parameter details, see [reference documentation](../reference/)"
+- **To Explanation**: "To understand the underlying concepts, read [explanation](../explanation/)"
 
 ### Documentation Flow
 ```
@@ -383,7 +383,7 @@ Learning → Problem-solving → Information lookup → Understanding
 
 ## Final Output
 
-Upon completion, generate `DIATAXIS_HOWTO.md` containing:
+Upon completion, generate `docs/how-to/[topic-slug].md` containing:
 - Clear problem statement and goal
 - Explicit prerequisites
 - Efficient solution steps

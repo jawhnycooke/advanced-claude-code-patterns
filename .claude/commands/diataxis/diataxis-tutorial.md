@@ -14,7 +14,7 @@ You are in the **TUTORIAL** phase of the Diataxis documentation workflow. Your m
 - Teaching through hands-on practice
 - Preventing and recovering from mistakes
 - Inspiring continued learning
-- Documenting everything in DIATAXIS_TUTORIAL.md
+- Documenting everything in `docs/tutorials/[topic-slug].md`
 
 ## Tutorial Topic
 $ARGUMENTS
@@ -160,9 +160,9 @@ If any of these checks fail, see Troubleshooting below.
 
 ## Tutorial Deliverables
 
-### Output File: DIATAXIS_TUTORIAL.md
+### Output File Location
 
-All tutorial documentation will be generated in `DIATAXIS_TUTORIAL.md` in the project root.
+All tutorial documentation will be generated in the `docs/tutorials/` directory with descriptive filenames based on the topic.
 
 ### Tutorial Template Structure
 
@@ -282,9 +282,9 @@ Before finalizing the tutorial:
 ## Integration with Other Diataxis Types
 
 ### Links to Other Documentation
-- **How-to Guides**: "Now that you understand basics, see [how-to] for specific tasks"
-- **Reference**: "For complete API details, see [reference]"
-- **Explanation**: "To understand why this works, read [explanation]"
+- **How-to Guides**: "Now that you understand basics, see [how-to guides](../how-to/) for specific tasks"
+- **Reference**: "For complete API details, see [reference](../reference/)"
+- **Explanation**: "To understand why this works, read [explanation](../explanation/)"
 
 ### Progression Path
 ```
@@ -294,7 +294,7 @@ Learning basics → Solving problems → Looking up details → Understanding de
 
 ## Final Output
 
-Upon completion, generate `DIATAXIS_TUTORIAL.md` containing:
+Upon completion, generate `docs/tutorials/[topic-slug].md` containing:
 - Complete, tested, step-by-step tutorial
 - Clear learning outcomes
 - Minimal prerequisites

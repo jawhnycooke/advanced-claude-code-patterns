@@ -48,10 +48,10 @@ Create all four documentation types for comprehensive coverage:
 /diataxis-docs "authentication system" --full
 ```
 Generates:
-- DIATAXIS_TUTORIAL.md - Learn to build auth
-- DIATAXIS_HOWTO.md - Implement specific auth scenarios
-- DIATAXIS_REFERENCE.md - Auth API specifications
-- DIATAXIS_EXPLANATION.md - Auth concepts and design
+- `docs/tutorials/authentication-tutorial.md` - Learn to build auth
+- `docs/how-to/authentication-tasks.md` - Implement specific auth scenarios
+- `docs/reference/authentication-api.md` - Auth API specifications
+- `docs/explanation/authentication-concepts.md` - Auth concepts and design
 
 #### `--learning` (Learning-Oriented)
 Focus on tutorial and explanation for education:
@@ -59,8 +59,8 @@ Focus on tutorial and explanation for education:
 /diataxis-docs "machine learning basics" --learning
 ```
 Generates:
-- DIATAXIS_TUTORIAL.md - Hands-on ML introduction
-- DIATAXIS_EXPLANATION.md - ML theory and concepts
+- `docs/tutorials/machine-learning-basics.md` - Hands-on ML introduction
+- `docs/explanation/machine-learning-theory.md` - ML theory and concepts
 
 #### `--working` (Task-Oriented)
 Focus on how-to and reference for practical work:
@@ -68,8 +68,8 @@ Focus on how-to and reference for practical work:
 /diataxis-docs "database migrations" --working
 ```
 Generates:
-- DIATAXIS_HOWTO.md - Migration procedures
-- DIATAXIS_REFERENCE.md - Migration commands
+- `docs/how-to/database-migrations.md` - Migration procedures
+- `docs/reference/migration-commands.md` - Migration commands
 
 #### `--understanding` (Concept-Oriented)
 Deep dive into explanation with supporting reference:
@@ -77,8 +77,8 @@ Deep dive into explanation with supporting reference:
 /diataxis-docs "distributed systems" --understanding
 ```
 Generates:
-- DIATAXIS_EXPLANATION.md - Distributed systems theory
-- DIATAXIS_REFERENCE.md - System specifications
+- `docs/explanation/distributed-systems-theory.md` - Distributed systems theory
+- `docs/reference/system-specifications.md` - System specifications
 
 ## 🔄 Orchestration Workflow
 
@@ -129,12 +129,12 @@ Based on analysis, deploy the appropriate Diataxis commands:
 ### Phase 1: Tutorial
 Deploying: /diataxis-tutorial "[topic]"
 Purpose: Create hands-on learning experience
-Output: DIATAXIS_TUTORIAL.md
+Output: `docs/tutorials/[topic-slug].md`
 
 ### Phase 2: Explanation
 Deploying: /diataxis-explanation "[topic]"
 Purpose: Provide conceptual understanding
-Output: DIATAXIS_EXPLANATION.md
+Output: `docs/explanation/[topic-slug].md`
 ```
 
 #### For Working Path
@@ -144,12 +144,12 @@ Output: DIATAXIS_EXPLANATION.md
 ### Phase 1: How-to Guide
 Deploying: /diataxis-howto "[topic]"
 Purpose: Solve specific problems
-Output: DIATAXIS_HOWTO.md
+Output: `docs/how-to/[topic-slug].md`
 
 ### Phase 2: Reference
 Deploying: /diataxis-reference "[topic]"
 Purpose: Technical specifications
-Output: DIATAXIS_REFERENCE.md
+Output: `docs/reference/[topic-slug].md`
 ```
 
 ### Step 3: Cross-Reference Integration
@@ -160,24 +160,24 @@ After generating individual documents, create cross-references:
 ## Documentation Cross-References
 
 ### In Tutorial:
-- "For specific tasks, see [How-to Guide](DIATAXIS_HOWTO.md)"
-- "For complete details, see [Reference](DIATAXIS_REFERENCE.md)"
-- "To understand concepts, read [Explanation](DIATAXIS_EXPLANATION.md)"
+- "For specific tasks, see [How-to Guide](../how-to/[topic].md)"
+- "For complete details, see [Reference](../reference/[topic].md)"
+- "To understand concepts, read [Explanation](../explanation/[topic].md)"
 
 ### In How-to:
-- "New to this? Start with [Tutorial](DIATAXIS_TUTORIAL.md)"
-- "For all parameters, see [Reference](DIATAXIS_REFERENCE.md)"
-- "For background, read [Explanation](DIATAXIS_EXPLANATION.md)"
+- "New to this? Start with [Tutorial](../tutorials/[topic].md)"
+- "For all parameters, see [Reference](../reference/[topic].md)"
+- "For background, read [Explanation](../explanation/[topic].md)"
 
 ### In Reference:
-- "To learn basics, see [Tutorial](DIATAXIS_TUTORIAL.md)"
-- "For practical tasks, see [How-to](DIATAXIS_HOWTO.md)"
-- "For concepts, read [Explanation](DIATAXIS_EXPLANATION.md)"
+- "To learn basics, see [Tutorial](../tutorials/[topic].md)"
+- "For practical tasks, see [How-to](../how-to/[topic].md)"
+- "For concepts, read [Explanation](../explanation/[topic].md)"
 
 ### In Explanation:
-- "Try the [Tutorial](DIATAXIS_TUTORIAL.md) for hands-on learning"
-- "See [How-to](DIATAXIS_HOWTO.md) for practical applications"
-- "Check [Reference](DIATAXIS_REFERENCE.md) for specifications"
+- "Try the [Tutorial](../tutorials/[topic].md) for hands-on learning"
+- "See [How-to](../how-to/[topic].md) for practical applications"
+- "Check [Reference](../reference/[topic].md) for specifications"
 ```
 
 ## 📊 Documentation Coverage Matrix
@@ -221,10 +221,10 @@ When creating full documentation, organize as:
 # [Topic] Documentation
 
 ## Documentation Guide
-- **[Tutorial](DIATAXIS_TUTORIAL.md)** - Start here if you're new
-- **[How-to Guides](DIATAXIS_HOWTO.md)** - Practical problem-solving
-- **[Reference](DIATAXIS_REFERENCE.md)** - Technical specifications
-- **[Explanation](DIATAXIS_EXPLANATION.md)** - Conceptual understanding
+- **[Tutorial](tutorials/[topic].md)** - Start here if you're new
+- **[How-to Guides](how-to/[topic].md)** - Practical problem-solving
+- **[Reference](reference/[topic].md)** - Technical specifications
+- **[Explanation](explanation/[topic].md)** - Conceptual understanding
 
 ## Quick Start
 For beginners → Tutorial
@@ -315,10 +315,10 @@ Before completing orchestration:
 Upon completion, you will have created:
 
 ### Individual Documents
-- `DIATAXIS_TUTORIAL.md` - Learning journey
-- `DIATAXIS_HOWTO.md` - Problem solutions
-- `DIATAXIS_REFERENCE.md` - Technical specs
-- `DIATAXIS_EXPLANATION.md` - Conceptual understanding
+- `docs/tutorials/[topic].md` - Learning journey
+- `docs/how-to/[topic].md` - Problem solutions
+- `docs/reference/[topic].md` - Technical specs
+- `docs/explanation/[topic].md` - Conceptual understanding
 
 ### Integrated Documentation
 - Cross-references between all documents
