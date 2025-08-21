@@ -199,6 +199,56 @@ Before deploying your agent, verify:
 - [ ] **Appropriate model** - Sonnet for simple, Opus for complex
 - [ ] **Proactive trigger** - Clear "Use PROACTIVELY when..." phrase
 
+## Emoji Usage Guidelines
+
+### When to Use Emojis
+
+Emojis can enhance agent communication when used appropriately:
+
+**✅ Good Uses:**
+- Status indicators: ✅ Success, ❌ Error, ⚠️ Warning
+- Section markers in output: 🔍 Analysis, 📝 Report, 🚀 Deploy
+- Progress tracking: ⏳ In Progress, ✅ Complete, 🔄 Retry
+- Friendly greeting agents: 👋 Hello, 🎉 Celebration
+
+**❌ Avoid:**
+- Overuse in technical documentation
+- Multiple emojis per line
+- Decorative emojis without meaning
+- Emojis in code comments or file names
+
+### Examples
+
+```markdown
+## Output Format
+
+Status indicators:
+- ✅ **PASSED**: All tests successful
+- ❌ **FAILED**: Critical issues found
+- ⚠️ **WARNING**: Non-critical issues
+
+Progress tracking:
+- 🔍 Analyzing codebase...
+- 📝 Generating report...
+- ✅ Complete!
+```
+
+### Agent-Specific Guidelines
+
+```yaml
+# Friendly agents (greetings, tutorials)
+color: green
+# Can use emojis liberally: 👋😊🎉
+
+# Technical agents (security, architecture)
+color: blue
+# Use sparingly for status only: ✅❌⚠️
+
+# Critical agents (deployment, qa)
+color: red
+# Minimal emojis, focus on clarity: ⚠️🚨
+```
+
 ## Common Mistakes to Avoid
 
 ### 1. Overly Verbose Instructions

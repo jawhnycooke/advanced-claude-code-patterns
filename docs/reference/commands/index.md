@@ -56,10 +56,10 @@ Complete index of all Claude Code commands.
 
 | Command | Purpose | Output | Documentation |
 |---------|---------|--------|---------------|
-| `/epcc/epcc-explore` | Explore codebase | `EPCC_EXPLORE.md` | [EPCC Commands](../epcc-commands.md#epcc-explore) |
-| `/epcc/epcc-plan` | Create implementation plan | `EPCC_PLAN.md` | [EPCC Commands](../epcc-commands.md#epcc-plan) |
-| `/epcc/epcc-code` | Implement solution | `EPCC_CODE.md` | [EPCC Commands](../epcc-commands.md#epcc-code) |
-| `/epcc/epcc-commit` | Finalize and commit | `EPCC_COMMIT.md` | [EPCC Commands](../epcc-commands.md#epcc-commit) |
+| `/epcc/epcc-explore` | Explore codebase | `EPCC_EXPLORE.md` | [EPCC Commands](epcc-commands.md#epcc-explore) |
+| `/epcc/epcc-plan` | Create implementation plan | `EPCC_PLAN.md` | [EPCC Commands](epcc-commands.md#epcc-plan) |
+| `/epcc/epcc-code` | Implement solution | `EPCC_CODE.md` | [EPCC Commands](epcc-commands.md#epcc-code) |
+| `/epcc/epcc-commit` | Finalize and commit | `EPCC_COMMIT.md` | [EPCC Commands](epcc-commands.md#epcc-commit) |
 
 ## Custom Commands
 
@@ -306,4 +306,4 @@ Current permissions: user, developer
 - [Syntax Reference](syntax.md)
 - [Built-in Commands](built-in.md)
 - [Custom Command API](api.md)
-- [EPCC Commands Reference](../epcc-commands.md)
+- [EPCC Commands Reference](epcc-commands.md)

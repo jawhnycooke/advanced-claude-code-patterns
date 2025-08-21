@@ -55,6 +55,29 @@ tools: [LS]
 ```
 Use for: Exploring project structure, finding files
 
+### Command Execution
+
+#### Bash
+Execute shell commands.
+```yaml
+tools: [Bash]
+```
+Use for: Running build scripts, executing tests, system operations
+
+#### BashOutput
+Retrieve output from background bash shells.
+```yaml
+tools: [BashOutput]
+```
+Use for: Monitoring long-running processes, checking command results
+
+#### KillBash
+Terminate background bash processes.
+```yaml
+tools: [KillBash]
+```
+Use for: Stopping runaway processes, cleanup operations
+
 ### Web Operations
 
 #### WebSearch
@@ -70,6 +93,22 @@ Fetch content from web pages.
 tools: [WebFetch]
 ```
 Use for: Retrieving specific documentation, API specs
+
+### Task Management
+
+#### TodoWrite
+Manage task lists and track progress.
+```yaml
+tools: [TodoWrite]
+```
+Use for: Complex multi-step tasks, progress tracking, task organization
+
+#### Task
+Launch specialized subagents for complex tasks.
+```yaml
+tools: [Task]
+```
+Use for: Multi-agent orchestration, delegating specialized work, parallel processing
 
 ## Tool Selection by Agent Type
 
@@ -124,13 +163,32 @@ tools: [Read, Write, Edit, Grep]
 
 ### Deployment Agents
 ```yaml
-tools: [Read, Write, Edit, Grep, Glob]
+tools: [Read, Write, Edit, Bash, BashOutput]
 ```
 - `Read`: Examine configuration
 - `Write`: Create deployment files
 - `Edit`: Update configurations
-- `Grep`: Find deployment patterns
-- `Glob`: Locate config files
+- `Bash`: Execute deployment commands
+- `BashOutput`: Monitor deployment progress
+
+### Project Management Agents
+```yaml
+tools: [Read, Write, TodoWrite, Task]
+```
+- `Read`: Review requirements and status
+- `Write`: Create documentation and reports
+- `TodoWrite`: Track project tasks
+- `Task`: Delegate to specialized agents
+
+### QA/Testing Agents
+```yaml
+tools: [Read, Write, Bash, BashOutput, TodoWrite]
+```
+- `Read`: Analyze code to test
+- `Write`: Create test scripts
+- `Bash`: Execute test commands
+- `BashOutput`: Monitor test results
+- `TodoWrite`: Track test coverage and issues
 
 ## Tool Usage Guidelines
 
@@ -178,6 +236,21 @@ tools: [Read, Write, WebSearch, Grep]
 tools: [Read, Write, Edit, MultiEdit, Grep, Glob, LS]
 ```
 
+### DevOps Operations
+```yaml
+tools: [Read, Write, Bash, BashOutput, KillBash]
+```
+
+### Project Coordination
+```yaml
+tools: [Read, Write, TodoWrite, Task]
+```
+
+### Quality Assurance
+```yaml
+tools: [Read, Write, Bash, BashOutput, TodoWrite, Grep]
+```
+
 ## Tool Limitations
 
 ### File Operations
@@ -190,10 +263,22 @@ tools: [Read, Write, Edit, MultiEdit, Grep, Glob, LS]
 - Glob supports standard patterns
 - LS only lists immediate directory contents
 
+### Command Execution
+- Bash commands have timeout limits
+- BashOutput only retrieves new output since last check
+- KillBash requires valid shell ID
+- Background processes need explicit management
+
 ### Web Operations
 - WebSearch returns limited results
 - WebFetch may fail on protected content
 - Both require internet connectivity
+
+### Task Management
+- TodoWrite replaces entire task list on each update
+- Task subagents are stateless and single-response
+- Task cannot receive follow-up messages
+- Multiple agents should be launched concurrently for performance
 
 ## See Also
 

@@ -46,6 +46,8 @@ tools: [Read, Write, Grep]
 ```
 
 ### Available Tools
+
+#### File Operations
 - `Read` - File reading
 - `Write` - File creation/overwriting
 - `Edit` - File editing
@@ -53,8 +55,19 @@ tools: [Read, Write, Grep]
 - `Grep` - Text search
 - `Glob` - File pattern matching
 - `LS` - Directory listing
+
+#### Command Execution
+- `Bash` - Execute shell commands
+- `BashOutput` - Retrieve output from background bash shells
+- `KillBash` - Terminate background bash processes
+
+#### Web Tools
 - `WebSearch` - Web search
 - `WebFetch` - Web page fetching
+
+#### Task Management
+- `TodoWrite` - Manage task lists and track progress
+- `Task` - Launch specialized subagents for complex tasks
 
 ### Tool Selection Guidelines
 
@@ -87,7 +100,22 @@ tools: [Read, Write, WebSearch]
 
 #### Deployment Agent
 ```yaml
-tools: [Read, Write, Edit, Grep]
+tools: [Read, Write, Edit, Bash, BashOutput]
+```
+
+#### QA Engineer Agent
+```yaml
+tools: [Read, Write, Bash, BashOutput, TodoWrite]
+```
+
+#### Project Manager Agent
+```yaml
+tools: [Read, Write, TodoWrite, Task]
+```
+
+#### Security Reviewer Agent
+```yaml
+tools: [Read, Grep, Glob, Bash, WebSearch]
 ```
 
 ## Color Configuration
