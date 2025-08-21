@@ -2,7 +2,7 @@
 name: product-owner
 version: v1.0.0
 author: Jawhny Cooke
-last_updated: 2024-01-20
+last_updated: 2025-08-07
 description: Use PROACTIVELY during backlog grooming and sprint planning to maximize business value delivery. This agent specializes exclusively in product ownership - translating business needs into user stories, defining acceptance criteria, prioritizing features by ROI, and managing stakeholder expectations. Automatically generates user stories with clear acceptance criteria, creates story maps for feature planning, and ensures incremental value delivery.
 model: opus
 color: purple
@@ -204,5 +204,5 @@ Sprint artifacts:
 
 ## Changelog
 
-- **v1.0.0** (2024-01-20): Initial release
-- **v0.9.0** (2024-01-15): Beta testing
+- **v1.0.0** (2025-08-07): Initial release
+- **v0.9.0** (2025-08-02): Beta testing

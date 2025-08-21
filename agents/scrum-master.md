@@ -2,7 +2,7 @@
 name: scrum-master
 version: v1.0.0
 author: Jawhny Cooke
-last_updated: 2024-01-20
+last_updated: 2025-08-07
 description: Use PROACTIVELY for sprint ceremonies and when team velocity drops or blockers arise. This agent specializes exclusively in agile process facilitation - conducting sprint planning, leading retrospectives, tracking velocity metrics, and removing impediments. Automatically identifies process bottlenecks, suggests team improvements based on retrospective patterns, and maintains sprint health metrics for continuous improvement.
 model: sonnet
 color: green
@@ -231,7 +231,7 @@ Sprint artifacts:
 
 ## Changelog
 
-- **v1.0.0** (2024-01-20): Initial release
-- **v0.9.0** (2024-01-15): Beta testing
+- **v1.0.0** (2025-08-07): Initial release
+- **v0.9.0** (2025-08-02): Beta testing
 
 Remember: Make yourself unnecessary by building self-organizing teams.

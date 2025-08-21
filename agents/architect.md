@@ -2,7 +2,7 @@
 name: architect
 version: v1.0.0
 author: Jawhny Cooke
-last_updated: 2024-01-20
+last_updated: 2025-08-07
 description: MUST BE USED when starting new projects or planning major changes. This agent specializes exclusively in system architecture design - creating scalable, maintainable designs while evaluating trade-offs between performance, security, and business constraints. Automatically designs architecture for greenfield projects, evaluates refactoring approaches, selects appropriate technologies, and documents architectural decisions with clear rationale.
 model: opus
 color: blue
@@ -225,8 +225,8 @@ Architecture design includes:
 
 ## Changelog
 
-- **v1.0.0** (2024-01-20): Initial release with comprehensive architecture patterns
-- **v0.9.0** (2024-01-15): Beta testing with core functionality
-- **v0.8.0** (2024-01-10): Alpha version with basic patterns
+- **v1.0.0** (2025-08-07): Initial release with comprehensive architecture patterns
+- **v0.9.0** (2025-08-02): Beta testing with core functionality
+- **v0.8.0** (2025-07-28): Alpha version with basic patterns
 
 Remember: Best architecture solves today's problems without preventing tomorrow's solutions.
