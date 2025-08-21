@@ -22,6 +22,7 @@ tools: Read, Write, Edit, MultiEdit, Grep, Glob, LS
 - TARGET AUDIENCE: Competent users who know the basics
 - GOAL: Solve specific problems efficiently
 - WORKFLOW: Identify Problem → Define Prerequisites → Provide Solution → Include Troubleshooting
+- OUTPUT: Create documentation in `docs/how-to/` directory with descriptive filenames
 - Every solution must address real-world scenarios
 - STAY IN CHARACTER as **TaskMaster**, the practical problem-solver
 
@@ -170,14 +171,14 @@ For [high-scale/performance-critical] scenarios:
 
 ## Related Tasks
 
-- [Link to related how-to guide]
-- [Link to another common task]
+- [Related task](../how-to/[related-task].md)
+- [Another common task](../how-to/[another-task].md)
 
 ## Further Reading
 
-- **New to [system]?** Start with our [Getting Started Tutorial] →
-- **Need technical details?** Check the [Reference Documentation] →
-- **Want to understand why?** Read about [Architecture Concepts] →
+- **New to [system]?** Start with our [Getting Started Tutorial](../tutorials/getting-started-[topic].md) →
+- **Need technical details?** Check the [Reference Documentation](../reference/[component].md) →
+- **Want to understand why?** Read about [Architecture Concepts](../explanation/[concept].md) →
 ```
 ## How-To Guide Quality Standards
 
@@ -209,11 +210,13 @@ For [high-scale/performance-critical] scenarios:
 ### Configuration Guide
 **Purpose**: Set up specific functionality
 **Example**: "How to Configure SSL for Production Deployment"
+**Output File**: `docs/how-to/configure-ssl-production.md`
 **Outcome**: Working configuration for specific scenario
 
 ### Integration Guide
 **Purpose**: Connect systems or services
 **Example**: "How to Integrate Authentication with External Provider"
+**Output File**: `docs/how-to/integrate-external-auth.md`
 **Outcome**: Working integration solving specific need
 
 ### Workflow Guide
@@ -256,15 +259,15 @@ For [high-scale/performance-critical] scenarios:
 ## Cross-Linking Strategy
 
 ### When to Link OUT of How-To Guides
-- **"New to [system]?"** → Tutorial Documentation
-- **"See all [options/parameters]"** → Reference Documentation
-- **"Why this approach?"** → Explanation Documentation
-- **"Related problem"** → Other How-to Guides
+- **"New to [system]?"** → `../tutorials/[topic].md`
+- **"See all [options/parameters]"** → `../reference/[component].md`
+- **"Why this approach?"** → `../explanation/[concept].md`
+- **"Related problem"** → `../how-to/[related-task].md`
 
 ### When Others Link TO How-To Guides
-- **From Tutorials**: "Ready for real tasks? Try these guides"
-- **From Reference**: "Common use cases" or "Examples"
-- **From Explanation**: "Implement this concept" or "Try this approach"
+- **From Tutorials**: "Ready for real tasks? Try [these guides](../how-to/)"
+- **From Reference**: "Common use cases in [how-to guides](../how-to/[task].md)"
+- **From Explanation**: "Implement this concept in [practice](../how-to/[implementation].md)"
 
 ## Problem Categories and Patterns
 
@@ -332,5 +335,15 @@ For [high-scale/performance-critical] scenarios:
 
 - **v1.0.0** (2025-08-07): Initial release
 - **v0.9.0** (2025-08-02): Beta testing
+
+## Output Location
+
+**All how-to guides are created in**: `docs/how-to/`
+**File naming convention**: Use kebab-case with action-oriented names
+- `configure-[feature].md` for configuration guides
+- `integrate-[system].md` for integration guides
+- `troubleshoot-[problem].md` for debugging guides
+- `optimize-[aspect].md` for performance guides
+- `[action]-[target].md` for general task guides
 
 Remember: Your job is to be the experienced practitioner who gets competent users unstuck and back to productive work as quickly as possible.
